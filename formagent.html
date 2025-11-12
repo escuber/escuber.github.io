@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RexusAi | Accessibility Form Agent</title>
+  <style>
+    :root { --bg:#0b0f14; --panel:#121823; --ink:#e8eef6; --muted:#a9b6c4; --accent:#6ad1ff; --accent-2:#b18cff; }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:radial-gradient(1200px 1200px at 10% -20%,#182131 0%,var(--bg) 50%) fixed}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:14px 0 6px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:40px;height:40px;border-radius:10px;background:conic-gradient(from 120deg,var(--accent),var(--accent-2));filter:drop-shadow(0 4px 18px rgba(106,209,255,.35))}
+    nav a{margin-left:18px;color:var(--muted);font-weight:600} nav a.active{color:var(--ink)}
+    .hero{margin:18px 0 28px;padding:28px;border-radius:18px;background:linear-gradient(180deg,rgba(97,128,255,.12),rgba(0,0,0,.25));border:1px solid rgba(255,255,255,.08)}
+    .hero h1{margin:0 0 10px;font-size:32px;letter-spacing:.2px} .hero p{margin:0;color:var(--muted);max-width:800px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+    .card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px}
+    .card h3{margin:4px 0 6px;font-size:18px} .card p{margin:0 0 10px;color:var(--muted)}
+    section{margin:34px 0} section h2{font-size:22px;margin:0 0 12px}
+    ul{margin:0;padding-left:18px} li{margin:6px 0;color:var(--ink)} .muted{color:var(--muted)}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px}
+    .callout{border-left:3px solid var(--accent);padding:10px 14px;background:rgba(106,225,255,.06);border-radius:8px}
+    footer{margin:40px 0 16px;color:var(--muted);font-size:14px;text-align:center}
+    .video{aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .video iframe{width:100%;height:100%;display:block}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <strong>RexusAi</strong>
+      </div>
+     <nav>
+        <a href="local.html" class="active">Local Lab</a>
+        <a href="formagent.html">Accessibility Form Agent</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Accessibility First Form Agent</h1>
+      <p>Helping users complete complex web forms from photos of documents with a human in the loop. Built to reduce friction for assistive tech users and high-cognitive-load tasks.</p>
+    </section>
+
+    <section>
+      <div class="grid">
+        <div class="card">
+          <h3>Mission</h3>
+          <ul>
+            <li>Reduce friction for people using screen readers, keyboard only navigation, or motor aids.</li>
+            <li>Lower cognitive load for ADHD and executive function challenges.</li>
+            <li>Keep user control, privacy, and auditability at the core.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What it does</h3>
+          <ul>
+            <li>Parses photos of paper documents and page screenshots into structured data.</li>
+            <li>Maps values to fields across multi step flows and conditional logic.</li>
+            <li>Crafts guided answers to resume questions to avoid extra prompts.</li>
+            <li>Detects errors and performs self recovery to the right step.</li>
+            <li>Returns a draft for the requester to approve.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>How it works</h3>
+          <ul>
+            <li>OpenAI vision, OCR, and LLM APIs for perception and reasoning.</li>
+            <li>Python agent services with page memory and retries.</li>
+            <li>MAUI client for capture, review, and transport.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Accessibility commitments</h2>
+      <ul>
+        <li>WCAG 2.2 AA targets for contrast, focus, semantics, and keyboard access.</li>
+        <li>Screen reader labels with <span class="kbd">aria-label</span>, <span class="kbd">aria-describedby</span>, and correct roles.</li>
+        <li>Keyboard first flows with logical tab order and visible focus rings.</li>
+        <li>Status messages via <span class="kbd">aria-live</span> regions, polite for progress and assertive for errors.</li>
+        <li>Clear, reversible actions and explicit error prevention with field validation before submit.</li>
+        <li>Human in the loop: drafts always require user approval before final submit.</li>
+        <li>Privacy by design: minimal collection, local processing where possible, and short retention windows.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Pipeline</h2>
+      <ol>
+        <li>Extract fields and options from the current page.</li>
+        <li>Parse document images to structured data.</li>
+        <li>Match values to fields with confidence notes and assumptions.</li>
+        <li>Submit and watch for validation errors or redirects.</li>
+        <li>Produce an audit log with steps, timestamps, and decisions.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Demo</h2>
+      <p class="muted">Drop your embed here when ready.</p>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/XXXXXXXXXXX" title="Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="callout">
+      <strong>Outcome:</strong> Faster, more accurate form completion with user control, better accessibility, and a clear audit trail.
+    </section>
+
+    <footer>
+      <div>All product names and brands are property of their respective owners.</div>
+      <div>Copyright © <span id="yr"></span> RexusAi</div>
+    </footer>
+  </div>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

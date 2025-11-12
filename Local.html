@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RexusAi | Local Lab</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #121823;
+      --ink: #e8eef6;
+      --muted: #a9b6c4;
+      --accent: #6ad1ff;
+      --accent-2: #b18cff;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink); background: radial-gradient(1200px 1200px at 10% -20%, #182131 0%, var(--bg) 50%) fixed;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header { display: flex; gap: 16px; align-items: center; justify-content: space-between; padding: 14px 0 6px; }
+    .brand { display: flex; gap: 12px; align-items: center; }
+    .logo { width: 40px; height: 40px; border-radius: 10px; background: conic-gradient(from 120deg, var(--accent), var(--accent-2)); filter: drop-shadow(0 4px 18px rgba(106,209,255,.35)); }
+    nav a { margin-left: 18px; color: var(--muted); font-weight: 600; }
+    nav a.active { color: var(--ink); }
+    .hero { margin: 18px 0 28px; padding: 28px; border-radius: 18px; background: linear-gradient(180deg, rgba(97,128,255,.12), rgba(0,0,0,.25)); border: 1px solid rgba(255,255,255,.08); }
+    .hero h1 { margin: 0 0 10px; font-size: 32px; letter-spacing: .2px; }
+    .hero p { margin: 0; color: var(--muted); max-width: 800px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .card { background: var(--panel); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding: 16px; }
+    .card h3 { margin: 4px 0 6px; font-size: 18px; }
+    .card p { margin: 0 0 10px; color: var(--muted); }
+    .kvs { display: grid; grid-template-columns: 1fr; gap: 8px; }
+    .kvs div { display: grid; grid-template-columns: 120px 1fr; gap: 10px; }
+    code.badge { background: rgba(255,255,255,.06); padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+    section { margin: 34px 0; }
+    section h2 { font-size: 22px; margin: 0 0 12px; }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 6px 0; color: var(--ink); }
+    .muted { color: var(--muted); }
+    .callout { border-left: 3px solid var(--accent); padding: 10px 14px; background: rgba(106,225,255,.06); border-radius: 8px; }
+    footer { margin: 40px 0 16px; color: var(--muted); font-size: 14px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <strong>RexusAi</strong>
+      </div>
+      <nav>
+        <a href="local.html" class="active">Local Lab</a>
+        <a href="formagent.html">Accessibility Form Agent</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Locally Hosted Model Capabilities</h1>
+      <p>To mirror a premium hosted experience with privacy and low latency, I built a local AI lab that gives the computer eyes, ears, and a voice, all orchestrated by a central brain.</p>
+    </section>
+
+    <section>
+      <div class="grid">
+        <div class="card">
+          <h3>Brain</h3>
+          <p>LLM core with retrieval and conversation echo for ongoing context.</p>
+          <div class="kvs">
+            <div><span class="muted">Models</span><span>Six local LLMs evaluated for quality and latency</span></div>
+            <div><span class="muted">Context</span><span>RAG pipeline with embeddings and history recall</span></div>
+            <div><span class="muted">Use</span><span>Planning, tool selection, summary, intent routing</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Eyes</h3>
+          <p>Vision models for recognition and OCR.</p>
+          <div class="kvs">
+            <div><span class="muted">Recognition</span><span>LLaVA for vision language understanding</span></div>
+            <div><span class="muted">OCR</span><span>Qwen 2.5‑VL for robust text extraction</span></div>
+            <div><span class="muted">Output</span><span>Image to structured JSON for downstream tools</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Ears</h3>
+          <p>Speech and sound understanding.</p>
+          <div class="kvs">
+            <div><span class="muted">ASR</span><span>Whisper for voice to text</span></div>
+            <div><span class="muted">Events</span><span>YAMNet for sound events like cough</span></div>
+            <div><span class="muted">Topology</span><span>Dedicated audio box streams inputs via KeyCatcher</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Mouth</h3>
+          <p>Voice output for real time feedback.</p>
+          <div class="kvs">
+            <div><span class="muted">TTS</span><span>Piper for low latency speech</span></div>
+            <div><span class="muted">I/O</span><span>UDP control messages and audio reply path</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Wiring</h3>
+          <p>Python services for sensors, queues, and model calls.</p>
+          <div class="kvs">
+            <div><span class="muted">Glue</span><span>Async queues with back pressure and retries</span></div>
+            <div><span class="muted">HID</span><span>KeyCatcher bridges devices and supports recovery</span></div>
+            <div><span class="muted">Deploy</span><span>Local nodes for ears and camera, central node for brain</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="callout">
+      <strong>Result:</strong> A local stack that mirrors hosted features with privacy and fast feedback, and lets you swap models without changing the operator experience.
+    </section>
+
+    <footer>
+      <div>All product names and brands are property of their respective owners.</div>
+      <div>Copyright © <span id="yr"></span> RexusAi</div>
+    </footer>
+  </div>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
