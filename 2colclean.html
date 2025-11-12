@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KeyCatcher: ESP32 Keyboard Bridge</title>
+  <meta name="description" content="Send text over BLE or UDP. Type as USB or BLE HID. No drivers.">
+  <style>
+    :root{ --bg:#0b0f14; --fg:#e6e6e6; --muted:#9aa4af; --card:#131923; --border:#1f2733; --accent:#68b5ff; }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{ margin:0; display:flex; background:var(--bg); color:var(--fg);
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif; line-height:1.6 }
+    aside{ position:sticky; top:0; align-self:flex-start; height:100vh; width:300px; min-width:260px; overflow:auto;
+      padding:20px; border-right:1px solid var(--border); background:#0e131b; }
+    main{ flex:1; height:100vh; overflow:auto; }
+    section{ max-width:900px; margin:0 auto; padding:28px 32px; }
+    h1{ margin:12px 0 6px; font-size:28px } .lead{ color:var(--muted); margin:6px 0 16px }
+    .card{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px; margin:16px 0 }
+    nav a{ display:block; padding:0px 10px; border-radius:8px; color:var(--fg); text-decoration:none; font-size:15px }
+    nav a:hover{ background:#0f1824 } nav a.active{ background:#132033; color:#d7ebff }
+    small.note{ color:var(--muted) }
+    a.cta{ display:inline-block; margin-top:10px; padding:10px 14px; background:var(--accent);
+      color:#001a2e; border-radius:10px; text-decoration:none; font-weight:600 }
+    hr{border:none;border-top:1px solid var(--border); margin:18px 0}
+    ul{margin-top:8px} img,video{max-width:100%; height:auto; border-radius:10px; border:1px solid var(--border)}
+    table{border-collapse:collapse; width:100%} td,th{border:1px solid var(--border); padding:8px}
+    html{ scroll-behavior:smooth }
+  </style>
+</head>
+<body>
+  <aside>
+    <h3 style="margin:8px 0 10px">Contents</h3>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#why-it-exists">Why it exists</a>
+      <a href="#what-it-is">What it is</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#core-requirements">Core requirements</a>
+      <a href="#server-esp32">Server (ESP32)</a>
+      <a href="#client-windows-android">Client (Windows and Android)</a>
+      <a href="#results-to-date">Results to date</a>
+      <a href="#server-results">Server results</a>
+      <a href="#client-results">Client results</a>
+      <a href="#security">Security</a>
+      <a href="#roadmap">Roadmap highlights</a>
+    </nav>
+    <hr/>
+    <small class="note">TOC stays visible while you read. Click a section to jump.</small>
+  </aside>
+ 
+  <main>
+    <section>
+      <h1>KeyCatcher: ESP32 Keyboard Bridge</h1>
+      <p class="lead">Send text over BLE or UDP. Type as USB or BLE HID. No drivers.</p>
+      <a class="cta" href="mailto:jimgaudette@gmail.com?subject=KeyCatcher%20demo%20request">Request a demo</a>
+    </section>
+
+    <section id="overview">
+      <div class="card">
+        <h2>Overview</h2>
+        <p>KeyCatcher turns a small ESP32 board into a universal keyboard bridge. A Windows or Android client sends text and macros over BLE or UDP. The device replays them as USB or BLE HID keystrokes on any host.</p>
+      </div>
+    </section>
+
+    <section id="why-it-exists">
+      <div class="card">
+        <h2>Why it exists</h2>
+        <ul>
+          <li>Copy and paste is often disabled in secure apps and VDI sessions.</li>
+          <li>People need to move text and commands between devices without cloud sync.</li>
+          <li>Accessibility and speed both improve when you can send clean keystrokes on demand.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="what-it-is">
+      <div class="card">
+        <h2>What it is</h2>
+        <p><strong>KeyCatcher Server (ESP32):</strong> Firmware that listens over BLE and UDP and emits keystrokes as a standard HID keyboard over USB or BLE.<br>
+           <strong>KeyCatcher Client (Windows and Android):</strong> A simple app to connect, configure, and send text or macros to one or more servers.</p>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="card">
+        <h2>How it works</h2>
+        <ol>
+          <li>Client splits text into chunks, adds sequence and checksum.</li>
+          <li>Server acks each chunk, requests retry on loss, and reassembles payload.</li>
+          <li>Server renders payload as keystrokes over HID with selectable layout and pacing.</li>
+          <li>Client monitors progress and retries as needed. If link conditions change, it switches transport.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="core-requirements">
+      <div class="card">
+        <h2>Core requirements</h2>
+        <p>Server and client must interoperate over BLE and UDP with reliable chunked transport and no drivers on the host.</p>
+      </div>
+    </section>
+
+    <section id="server-esp32">
+      <div class="card">
+        <h2>Server (ESP32)</h2>
+        <ul>
+          <li>Accept input over BLE and UDP.</li>
+          <li>Output as USB HID keyboard or BLE HID keyboard.</li>
+          <li>Chunked transport with ack, retry, and auto reconnect.</li>
+          <li>Optional legacy mode for unframed data.</li>
+          <li>Nice to have: AP and web UI for setup, docs, on-device macros.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="client-windows-android">
+      <div class="card">
+        <h2>Client (Windows and Android)</h2>
+        <ul>
+          <li>Unified UI and identical features on both platforms.</li>
+          <li>Create and send messages and macros to any server.</li>
+          <li>Full BLE and UDP protocol support, including large messages up to about 6 KB.</li>
+          <li>Auto select the best transport and fall back on failure.</li>
+          <li>Configure server network settings and device identity.</li>
+          <li>Picture to text helper for quick OCR into keystrokes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="results-to-date">
+      <div class="card">
+        <h2>Results to date</h2>
+        <p>Core features validated on Windows and Android with clean typing of 6 KB payloads via USB and BLE HID.</p>
+      </div>
+    </section>
+
+    <section id="server-results">
+      <div class="card">
+        <h2>Server results</h2>
+        <ul>
+          <li>Chunked messages with ack, retry, and auto reconnect over BLE and UDP.</li>
+          <li>Legacy straight data mode supported.</li>
+          <li>Optional AP web server with protocol docs, macro editor, and config.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="client-results">
+      <div class="card">
+        <h2>Client results</h2>
+        <ul>
+          <li>Shared protocol and feature set across Windows and Android.</li>
+          <li>Create and send messages to any server.</li>
+          <li>Network and identity configuration for servers.</li>
+          <li>Macro define, run, share, and auto transport selection.</li>
+          <li>Picture to text helper for quick OCR to keystrokes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="security">
+      <div class="card">
+        <h2>Security</h2>
+        <ul>
+          <li>Pairing and allow-list for BLE connections.</li>
+          <li>Optional pre-shared key for UDP sessions on trusted LANs.</li>
+          <li>Local first; no cloud dependency.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="card">
+        <h2>Roadmap highlights</h2>
+        <ul>
+          <li>Per app keymaps and IME friendly modes.</li>
+          <li>Encrypted UDP sessions.</li>
+          <li>Multi-device broadcast and round-robin.</li>
+          <li>On-device storage for larger macro packs.</li>
+          <li>Scriptable actions for function keys and window focus.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const link
