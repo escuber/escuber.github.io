@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KeyCatcher • RexusAi</title>
+  <meta name="description" content="Send text over BLE or UDP. Type as USB or BLE HID. No drivers.">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <aside>
+    <h3 style="margin:8px 0 10px">Contents</h3>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#demo-video">Demo video</a>
+      <a href="#what-it-is">What it is</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#server-esp32">Server (ESP32)</a>
+      <a href="#client-windows-android">Client (Windows and Android)</a>
+      <a href="#security">Security</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+    <hr/>
+    <small class="note">TOC stays visible while you read. Click a section to jump.</small>
+  </aside>
+
+  <main>
+    <section>
+      <header class="brand">
+        <img src="assets/logo-rexusai-icon.svg" alt="RexusAi icon" style="width:34px;height:34px" />
+        <div>
+          <h1 style="margin:0">KeyCatcher: ESP32 Keyboard Bridge <span class="badge">by RexusAi</span></h1>
+          <p class="lead" style="margin:2px 0 0">Send text over BLE or UDP. Type as USB or BLE HID. No drivers.</p>
+        </div>
+      </header>
+      <a class="cta" href="mailto:jimgaudette@gmail.com?subject=KeyCatcher%20demo%20request">Request a demo</a>
+    </section>
+
+    <section id="overview">
+      <div class="card">
+        <h2>Overview</h2>
+        <p>KeyCatcher turns a small ESP32 board into a universal keyboard bridge. A Windows or Android client sends text and macros over BLE or UDP. The device replays them as USB or BLE HID keystrokes on any host.</p>
+      </div>
+    </section>
+<section id="demo-video">
+      <div class="card">
+        <h2>Demo video</h2>
+        <div class="video-wrap">
+          <div class="video-inner">
+            <iframe src="https://www.youtube.com/embed/_yxq2YBSQ1c?si=DiXw5HhvsW9Xbj_m"
+              title="KeyCatcher demo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      <p style="margin-top:12px;color:var(--muted)">45‑second walkthrough: phone‑to‑PC typing over BLE/UDP, plus PC‑to‑PC when paste is locked. Clean keystrokes, no drivers.</p></div>
+    </section>
+
+    
+
+    <section id="what-it-is">
+      <div class="card">
+        <h2>What it is</h2>
+        <p><strong>KeyCatcher Server (ESP32):</strong> Firmware that listens over BLE and UDP and emits keystrokes as a standard HID keyboard over USB or BLE.<br>
+           <strong>KeyCatcher Client (Windows and Android):</strong> A simple app to connect, configure, and send text or macros to one or more servers.</p>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="card">
+        <h2>How it works</h2>
+        <ol>
+          <li>Client splits text into chunks, adds sequence and checksum.</li>
+          <li>Server acks each chunk, requests retry on loss, and reassembles payload.</li>
+          <li>Server renders payload as keystrokes over HID with selectable layout and pacing.</li>
+          <li>Client monitors progress and retries as needed. If link conditions change, it switches transport.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="server-esp32">
+      <div class="card">
+        <h2>Server (ESP32)</h2>
+        <ul>
+          <li>Accept input over BLE and UDP.</li>
+          <li>Output as USB HID keyboard or BLE HID keyboard.</li>
+          <li>Chunked transport with ack, retry, and auto reconnect.</li>
+          <li>Optional legacy mode for unframed data.</li>
+          <li>Nice to have: AP and web UI for setup, docs, on-device macros.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="client-windows-android">
+      <div class="card">
+        <h2>Client (Windows and Android)</h2>
+        <ul>
+          <li>Unified UI and identical features on both platforms.</li>
+          <li>Create and send messages and macros to any server.</li>
+          <li>Full BLE and UDP protocol support, including large messages up to about 6 KB.</li>
+          <li>Auto select the best transport and fall back on failure.</li>
+          <li>Configure server network settings and device identity.</li>
+          <li>Picture to text helper for quick OCR into keystrokes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="security">
+      <div class="card">
+        <h2>Security</h2>
+        <ul>
+          <li>Pairing and allow-list for BLE connections.</li>
+          <li>Optional pre-shared key for UDP sessions on trusted LANs.</li>
+          <li>Local first; no cloud dependency.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="card">
+        <h2>Roadmap highlights</h2>
+        <ul>
+          <li>Per app keymaps and IME friendly modes.</li>
+          <li>Encrypted UDP sessions.</li>
+          <li>Multi-device broadcast and round-robin.</li>
+          <li>On-device storage for larger macro packs.</li>
+          <li>Scriptable actions for function keys and window focus.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const links = Array.from(document.querySelectorAll('nav a'));
+    const rootMain = document.querySelector('main');
+    const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelector(`nav a[href="#${id}"]`);
+        if(entry.isIntersecting){
+          links.forEach(l=>l.classList.remove('active'));
+          if(link) link.classList.add('active');
+        }
+      });
+    }, { root: rootMain, rootMargin: '0px 0px -65% 0px', threshold: 0 });
+    targets.forEach(t => obs.observe(t));
+  </script>
+</body>
+</html>

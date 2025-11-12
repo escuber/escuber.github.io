@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180">
+  <rect width="720" height="180" rx="20" fill="#0B0F14"/>
+  <g transform="translate(20 20)">
+    <g transform="translate(0 0) scale(0.55)">
+      <rect width="256" height="256" rx="28" fill="#0B0F14"/>
+      <g transform="translate(28 28)">
+        <path d="M100 0l86.6 50v100L100 200 13.4 150V50z" fill="#0F1520" stroke="#1F2A37" stroke-width="6"/>
+        <path d="M60 55h48c20 0 32 12 32 28 0 13-9 24-23 27l23 35h-22l-21-33H80v33H60V55zm48 16H80v25h28c11 0 18-5 18-13s-7-12-18-12z" fill="#7CC4FF"/>
+        <circle cx="155" cy="60" r="6" fill="#22D3EE"/>
+      </g>
+    </g>
+    <g transform="translate(160 35)">
+      <text x="0" y="0" fill="#E6E6E6" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="48" font-weight="700">
+        Rexus<tspan fill="#7CC4FF">Ai</tspan>
+      </text>
+      <text x="0" y="48" fill="#A3B0BF" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18">
+        Assistive automation • Device bridges • Local-first AI
+      </text>
+    </g>
+  </g>
+</svg>
