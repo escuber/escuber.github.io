@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KeyCatcher: ESP32 Keyboard Bridge</title>
+  <meta name="description" content="Send text over BLE or UDP. Type as USB or BLE HID. No drivers.">
+  <style>
+    :root { --bg:#0b0f14; --fg:#e6e6e6; --muted:#9aa4af; --card:#131923; --accent:#68b5ff; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;line-height:1.5}
+    .wrap{max-width:900px;margin:0 auto;padding:32px}
+    header{padding:24px 0}
+    h1{font-size:32px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 16px}
+    .card{background:var(--card);border:1px solid #1f2733;border-radius:14px;padding:20px;margin:18px 0}
+    ul{margin:8px 0 0 18px}
+    .cta{display:inline-block;margin-top:12px;padding:12px 18px;background:var(--accent);color:#001a2e;border-radius:10px;text-decoration:none;font-weight:600}
+    .grid{display:grid;gap:16px;grid-template-columns:1fr; }
+    @media (min-width:800px){ .grid{grid-template-columns:1fr 1fr;} }
+    footer{color:var(--muted);font-size:14px;margin:32px 0 0}
+    .note{font-size:14px;color:var(--muted)}
+    video, img{width:100%;border-radius:12px;border:1px solid #1f2733}
+    code{background:#0f141c;padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>KeyCatcher: ESP32 Keyboard Bridge</h1>
+      <p class="lead">Send text over BLE or UDP. Type as USB or BLE HID. No drivers.</p>
+      <a class="cta" href="mailto:jimgaudette@gmail.com?subject=KeyCatcher%20demo%20request">Request a demo</a>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>What it is</h2>
+        <p>KeyCatcher turns a small ESP32 board into a universal keyboard bridge. A Windows or Android client sends text and macros over BLE or UDP. The device replays them as USB or BLE HID keystrokes on any host.</p>
+        <ul>
+          <li>Reliable chunked transport with ack, retry, and auto reconnect</li>
+          <li>Windows and Android clients, macros, auto transport switching</li>
+          <li>Great for paste-blocked fields, VDI, and accessibility workflows</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>How it works</h2>
+        <ol>
+          <li>Client splits text into chunks with sequence and checksum.</li>
+          <li>ESP32 acks chunks, retries on loss, reassembles payload.</li>
+          <li>ESP32 types keystrokes as USB or BLE HID with pacing.</li>
+          <li>Client monitors progress and switches transport if needed.</li>
+        </ol>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Short demo</h2>
+      <!-- Use an unlisted video link or host a small MP4 here -->
+      <video controls poster="demo.jpg">
+        <source src="demo.mp4" type="video/mp4" />
+        Your browser does not support embedded video.
+      </video>
+      <p class="note">Code is private. Evaluation binaries and a private brief are available on request.</p>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:jimgaudette@gmail.com">jimgaudette@gmail.com</a></p>
+      <p class="note">If you want access to evaluation builds, include your platform and use case.</p>
+    </section>
+
+    <footer>
+      <p>© 2025 Jim Gaudette. Text and images licensed CC BY-ND 4.0. No source code in this repository.</p>
+    </footer>
+  </div>
+</body>
+</html>
