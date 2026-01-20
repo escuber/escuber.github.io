@@ -1,149 +1,333 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KeyCatcher • RexusAi</title>
-  <meta name="description" content="Send text over BLE or UDP. Type as USB or BLE HID. No drivers.">
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RexusAI — Accessibility-First AI Systems</title>
+  <meta name="description" content="RexusAI is an applied AI lab building human-controlled systems that bridge accessibility gaps in complex digital workflows." />
+
+  <style>
+    :root {
+      --bg-main: #0b0f14;
+      --bg-panel: #111824;
+      --bg-soft: #141c2b;
+
+      --text-main: #e6ebf2;
+      --text-muted: #9aa6bd;
+      --text-faint: #6f7a92;
+
+      --accent-primary: #4fd1c5;
+      --accent-secondary: #7aa2f7;
+      --accent-glow: rgba(79, 209, 197, 0.35);
+
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --radius: 14px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(
+          1200px 600px at 20% -10%,
+          rgba(122, 162, 247, 0.12),
+          transparent 60%
+        ),
+        radial-gradient(
+          900px 500px at 90% 10%,
+          rgba(79, 209, 197, 0.10),
+          transparent 55%
+        ),
+        var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      padding: 48px 24px 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header img.logo {
+      height: 40px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin: 0 0 16px;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 0 0 6px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--text-muted);
+    }
+
+    .hero-sub {
+      max-width: 700px;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .cta-row {
+      margin-top: 28px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-soft);
+      background: var(--bg-panel);
+      color: var(--text-main);
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(
+        135deg,
+        var(--accent-primary),
+        var(--accent-secondary)
+      );
+      color: #0b0f14;
+      border: none;
+      box-shadow: 0 0 0 transparent;
+    }
+
+    .btn.primary:hover {
+      box-shadow: 0 0 18px var(--accent-glow);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    .panel {
+      background: linear-gradient(
+        180deg,
+        var(--bg-panel),
+        var(--bg-soft)
+      );
+      border-radius: var(--radius);
+      padding: 32px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .mission {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: linear-gradient(
+        180deg,
+        var(--bg-panel),
+        var(--bg-soft)
+      );
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .product .status {
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent-secondary);
+      margin-bottom: 8px;
+    }
+
+    .foundation {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,0.15),
+        transparent
+      );
+      margin: 32px 0;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 24px 56px;
+      color: var(--text-faint);
+      font-size: 0.9rem;
+    }
+
+    footer .links {
+      margin-top: 8px;
+    }
+
+    footer a {
+      margin-right: 14px;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
+
 <body>
-  <aside>
-    <h3 style="margin:8px 0 10px">Contents</h3>
-    <nav>
-      <a href="#overview">Overview</a>
-      <a href="#demo-video">Demo video</a>
-      <a href="#what-it-is">What it is</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#server-esp32">Server (ESP32)</a>
-      <a href="#client-windows-android">Client (Windows and Android)</a>
-      <a href="#security">Security</a>
-      <a href="#roadmap">Roadmap</a>
-    </nav>
-    <hr/>
-    
-  </aside>
 
-  <main>
-    <section>
-      <header class="brand">
-        <img src="assets/rai.png" alt="RexusAi icon" style="width:34px;height:34px" />
-        <div>
-          <h1 style="margin:0">KeyCatcher: ESP32 Keyboard Bridge <span class="badge">by RexusAi</span></h1>
-          <p class="lead" style="margin:2px 0 0">Send text over BLE or UDP. Type as USB or BLE HID. No drivers.</p>
-        </div>
-      </header>
-      <a class="cta" href="mailto:jimgaudette@gmail.com?subject=KeyCatcher%20demo%20request">Request a demo</a>
-    </section>
+  <header>
+    <!-- Replace with your logo path -->
+    <img src="rai.png" alt="RexusAI logo" class="logo" />
 
-    <section id="overview">
-      <div class="card">
-        <h2>Overview</h2>
-        <p>KeyCatcher turns a small ESP32 board into a universal keyboard bridge. A Windows or Android client sends text and macros over BLE or UDP. The device replays them as USB or BLE HID keystrokes on any host.</p>
+    <h1>RexusAI</h1>
+    <p class="hero-sub">
+      Using AI to help bridge the accessibility gap across the internet.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn primary" href="#products">View Products</a>
+      <a class="btn" href="#about">About the Lab</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="panel mission">
+      <p>
+        RexusAI is an applied AI lab focused on building practical,
+        human-controlled systems that reduce friction in complex digital
+        workflows.
+      </p>
+      <p>
+        The work prioritizes accessibility, privacy, auditability, and
+        reliability — especially in constrained or regulated environments
+        where traditional automation and assistive tools fall short.
+      </p>
+      <p>
+        No browser plugins. No fragile scripts. No opaque agents acting
+        on your behalf.
+      </p>
+    </div>
+  </section>
+
+  <section id="products">
+    <h2>Products</h2>
+
+    <div class="products">
+      <div class="product">
+        <div class="status">Available</div>
+        <h3>KeyCatcher</h3>
+        <p>
+          A hardware keyboard bridge that restores input freedom in
+          locked-down and constrained environments.
+        </p>
+        <p>
+          Designed for accessibility, automation, and cross-device control
+          where copy/paste, virtual keyboards, or extensions are restricted.
+        </p>
+        <a href="/keycatcher">View KeyCatcher →</a>
       </div>
-    </section>
-<section id="demo-video">
-      <div class="card">
-        <h2>Demo video</h2>
-        <div class="video-wrap">
-          <div class="video-inner">
-            <iframe src="https://www.youtube.com/embed/_yxq2YBSQ1c?si=DiXw5HhvsW9Xbj_m"
-              title="KeyCatcher demo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </div>
-      <p style="margin-top:12px;color:var(--muted)">45‑second walkthrough: phone‑to‑PC typing over BLE/UDP, plus PC‑to‑PC when paste is locked. Clean keystrokes, no drivers.</p></div>
-    </section>
 
-    
-
-    <section id="what-it-is">
-      <div class="card">
-        <h2>What it is</h2>
-        <p><strong>KeyCatcher Server (ESP32):</strong> Firmware that listens over BLE and UDP and emits keystrokes as a standard HID keyboard over USB or BLE.<br>
-           <strong>KeyCatcher Client (Windows and Android):</strong> A simple app to connect, configure, and send text or macros to one or more servers.</p>
+      <div class="product">
+        <div class="status">In Development</div>
+        <h3>Sightline</h3>
+        <p>
+          Visual-state analysis that understands forms, fields, labels,
+          and errors directly from the screen.
+        </p>
+        <p>
+          Built to support guided, accessible workflows without relying
+          on APIs or page structure.
+        </p>
       </div>
-    </section>
 
-    <section id="how-it-works">
-      <div class="card">
-        <h2>How it works</h2>
-        <ol>
-          <li>Client splits text into chunks, adds sequence and checksum.</li>
-          <li>Server acks each chunk, requests retry on loss, and reassembles payload.</li>
-          <li>Server renders payload as keystrokes over HID with selectable layout and pacing.</li>
-          <li>Client monitors progress and retries as needed. If link conditions change, it switches transport.</li>
-        </ol>
+      <div class="product">
+        <div class="status">In Development</div>
+        <h3>CoachPort</h3>
+        <p>
+          An AI-assisted job application system that helps users parse
+          forms, map data, and complete applications step-by-step.
+        </p>
+        <p>
+          Designed with a human in the loop and accessibility at the core.
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="server-esp32">
-      <div class="card">
-        <h2>Server (ESP32)</h2>
-        <ul>
-          <li>Accept input over BLE and UDP.</li>
-          <li>Output as USB HID keyboard or BLE HID keyboard.</li>
-          <li>Chunked transport with ack, retry, and auto reconnect.</li>
-          <li>Optional legacy mode for unframed data.</li>
-          <li>Nice to have: AP and web UI for setup, docs, on-device macros.</li>
-        </ul>
-      </div>
-    </section>
+  <section>
+    <div class="divider"></div>
+    <div class="foundation">
+      <h2>Built on RexusCore</h2>
+      <p>
+        These systems share a common internal platform that connects
+        vision, language models, and real-world tool execution into
+        inspectable, human-controlled workflows.
+      </p>
+      <p>
+        RexusCore is used internally to ensure consistency, auditability,
+        and reliability across all products.
+      </p>
+      <a href="/rexuscore">Learn about RexusCore →</a>
+    </div>
+  </section>
 
-    <section id="client-windows-android">
-      <div class="card">
-        <h2>Client (Windows and Android)</h2>
-        <ul>
-          <li>Unified UI and identical features on both platforms.</li>
-          <li>Create and send messages and macros to any server.</li>
-          <li>Full BLE and UDP protocol support, including large messages up to about 6 KB.</li>
-          <li>Auto select the best transport and fall back on failure.</li>
-          <li>Configure server network settings and device identity.</li>
-          <li>Picture to text helper for quick OCR into keystrokes.</li>
-        </ul>
-      </div>
-    </section>
+  <footer>
+    <div>
+      Built and maintained by <strong>Jim Gaudette</strong><br />
+      Senior software engineer with 30+ years of experience across
+      enterprise systems, embedded devices, and AI-driven automation.
+    </div>
+    <div class="links">
+      <a href="https://github.com/escuber">GitHub</a>
+      <a href="https://www.linkedin.com/in/jim-gaudette/">LinkedIn</a>
+      <a href="mailto:jimgaudette@gmail.com">Contact</a>
+    </div>
+  </footer>
 
-    <section id="security">
-      <div class="card">
-        <h2>Security</h2>
-        <ul>
-          <li>Pairing and allow-list for BLE connections.</li>
-          <li>Optional pre-shared key for UDP sessions on trusted LANs.</li>
-          <li>Local first; no cloud dependency.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="roadmap">
-      <div class="card">
-        <h2>Roadmap highlights</h2>
-        <ul>
-          <li>Per app keymaps and IME friendly modes.</li>
-          <li>Encrypted UDP sessions.</li>
-          <li>Multi-device broadcast and round-robin.</li>
-          <li>On-device storage for larger macro packs.</li>
-          <li>Scriptable actions for function keys and window focus.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    const links = Array.from(document.querySelectorAll('nav a'));
-    const rootMain = document.querySelector('main');
-    const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        const id = entry.target.getAttribute('id');
-        const link = document.querySelector(`nav a[href="#${id}"]`);
-        if(entry.isIntersecting){
-          links.forEach(l=>l.classList.remove('active'));
-          if(link) link.classList.add('active');
-        }
-      });
-    }, { root: rootMain, rootMargin: '0px 0px -65% 0px', threshold: 0 });
-    targets.forEach(t => obs.observe(t));
-  </script>
 </body>
 </html>
