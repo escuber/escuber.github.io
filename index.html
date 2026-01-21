@@ -216,24 +216,25 @@
       color: var(--text-muted);
     }
 
-    .hero {
-        width: 100vw;
+  .hero {
+  width: 100vw;
   margin-left: calc(50% - 50vw);
   position: relative;
-  padding: 64px 24px 56px;
-background:
-  linear-gradient(
-    110deg,
-    rgba(122, 162, 247, 0.22),
-    rgba(79, 209, 197, 0.14) 40%,
-    transparent 72%
-  );
+  padding: 64px 0 56px; /* ← remove side padding */
+  background:
+    linear-gradient(
+      110deg,
+      rgba(122, 162, 247, 0.22),
+      rgba(79, 209, 197, 0.14) 40%,
+      transparent 72%
+    );
   border-bottom: 1px solid var(--border-soft);
 }
 
 .hero-inner {
   max-width: 1100px;
   margin: 0 auto;
+  padding: 0 24px; /* ← this is the key */
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 40px;
@@ -243,8 +244,9 @@ background:
 .brand {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
+
 
 .logo {
   height: 120px; /* much better than 200px */
