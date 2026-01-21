@@ -280,26 +280,22 @@ background:
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.hero-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.18),
+    transparent
+  );
+}
   </style>
 </head>
 
 <body>
 
- <!-- <header>
-    
-    <img src="assets/rai.png" alt="RexusAI logo" class="logo" />
-    
-    <h1>RexusAI</h1>
-    <p class="hero-sub">
-      Using AI to help bridge the accessibility gap across the internet.
-    </p>
 
-    <div class="cta-row">
-      <a class="btn primary" href="#products">View Products</a>
-    
-    </div>
-  </header>-->
 <header class="hero">
   <div class="hero-inner">
     <div class="brand">
@@ -317,6 +313,7 @@ background:
       </div>
     </div>
   </div>
+  <div class="hero-divider"></div>
 </header>
   <section id="about">
     <div class="panel mission">
