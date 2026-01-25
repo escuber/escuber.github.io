@@ -28,43 +28,49 @@
     </nav>
 
     <main>
-        <section>
+        <section class="hero-section">
             <div class="container animate-up">
-                <a href="/rexuscore/" style="color: var(--accent-secondary); text-decoration: none; font-weight: 600;">←
-                    Back to RexusCore</a>
-                <h1 class="gradient-text" style="margin-top: 24px;">Cognitive Reasoning</h1>
-                <p style="margin-top: 16px; color: var(--text-muted); max-width: 700px; font-size: 1.2rem;">
-                    The Reasoning Engine is the brain of RexusCore.
-                    It leverages Large Language Models to transform high-level goals into tactical execution plans.
+                <a href="/rexuscore/"
+                    style="color: var(--accent-primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.2rem;">←</span> Back to RexusCore
+                </a>
+                <h1 class="gradient-text" style="margin-top: 24px;">Cognitive Reasoning Core</h1>
+                <p class="hero-sub"
+                    style="margin-top: 16px; color: var(--text-muted); max-width: 800px; font-size: 1.25rem;">
+                    The reasoning core is the central executive of RexusCore.
+                    It leverages a <b>dynamic swapout architecture</b> to route complex tasks to frontier cloud models
+                    while keeping sensitive, high-frequency logic on the edge.
                 </p>
             </div>
         </section>
 
         <section class="glass">
             <div class="container">
-                <h2>The Reasoning Loop</h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 40px;">
-                    <div class="feature-card">
-                        <h3>Natural Language Intent</h3>
+                <h2 class="gradient-text">The Reasoning Loop</h2>
+                <div class="feature-grid" style="margin-top: 40px;">
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Model Swapout Hub</h3>
                         <p style="color: var(--text-muted); margin-top: 12px;">
-                            Users provide goals in plain English. The engine parses the intent, identifies required data
-                            points,
-                            and plans the necessary steps.
+                            Switch between <b>Gemini 1.5 Pro</b>, <b>GPT-4o</b>, and <b>Claude 3.5 Sonnet</b> in
+                            real-time.
+                            RexusCore selects the optimal "brain" for the current objective, balancing cost, reasoning
+                            depth, and latency.
                         </p>
                     </div>
-                    <div class="feature-card">
-                        <h3>Context Maintenance</h3>
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Local Model Privacy</h3>
                         <p style="color: var(--text-muted); margin-top: 12px;">
-                            RexusCore maintains a long-term "memory" of the workflow state,
-                            ensuring it doesn't lose track of the mission during complex, multi-page interactions.
+                            For sensitive workflows, RexusCore can swap to <b>Local LLMs (Llama 3 / Mistral)</b> running
+                            on your own hardware.
+                            This "Edge Reasoning" ensures that private data never leaves your environment.
                         </p>
                     </div>
-                    <div class="feature-card">
-                        <h3>Self-Correction</h3>
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Self-Healing Logic</h3>
                         <p style="color: var(--text-muted); margin-top: 12px;">
-                            When an unexpected dialog box or error appears, the engine analyzes the new state
-                            and regenerates its plan to bypass the obstacle.
+                            When an agent encounters a broken UI or an unexpected pop-up, the core performs a "Mental
+                            Reset,"
+                            re-analyzing the vision state and regenerating the tactical plan to bypass the friction.
                         </p>
                     </div>
                 </div>
@@ -73,12 +79,11 @@
 
         <section>
             <div class="container">
-                <h2>Privacy & Safety</h2>
-                <p style="color: var(--text-muted); max-width: 800px; margin-top: 16px;">
-                    Reasoning is performed using secure, enterprise-grade LLM endpoints.
-                    Personal identifiable information (PII) is handled with strict adherence to privacy-first
-                    principles,
-                    ensuring that sensitive data is never used for training or leaked beyond the session scope.
+                <h2 class="gradient-text">Agnostic Intelligence</h2>
+                <p style="color: var(--text-muted); max-width: 800px; margin-top: 16px; line-height: 1.6;">
+                    RexusCore is built to be <b>Future-Proof</b>. As new frontier models like GPT-5 or Llama 4 emerge,
+                    they can be plugged into the Model Swapout Hub without changing a single line of application code.
+                    Your automation stack stays state-of-the-art by default.
                 </p>
             </div>
         </section>
@@ -86,6 +91,40 @@
 
     <footer>
         <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-brand">
+                        <img src="../assets/rai.png" alt="RexusAI">
+                        <span>RexusAI</span>
+                    </div>
+                    <p>Bridging the accessibility gap with applied AI.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="/rexuscore/">RexusCore</a></li>
+                        <li><a href="/rexuscore/vision.html">Vision Engine</a></li>
+                        <li><a href="/rexuscore/reasoning.html">Reasoning</a></li>
+                        <li><a href="/rexuscore/execution.html">Execution</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="/#keycatcher">KeyCatcher</a></li>
+                        <li><a href="/#sightline">Sightline</a></li>
+                        <li><a href="/agent.html">Form Agent</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://github.com/escuber">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/jim-gaudette/">LinkedIn</a></li>
+                        <li><a href="mailto:jimgaudette@gmail.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="copyright">
                 &copy; 2026 RexusAI. All rights reserved.
             </div>

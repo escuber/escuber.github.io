@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +16,12 @@
             gap: 24px;
             margin-top: 48px;
         }
+
         .feature-card {
             padding: 32px;
             border-radius: var(--radius-md);
         }
+
         .architecture-img {
             width: 100%;
             height: 400px;
@@ -33,6 +36,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="container nav-inner">
@@ -53,8 +57,10 @@
         <section class="hero-section">
             <div class="container animate-up">
                 <h1 class="gradient-text">RexusCore</h1>
-                <p class="hero-sub" style="font-size: 1.25rem; margin-top: 16px; color: var(--text-muted); max-width: 800px;">
-                    The power behind the vision. RexusCore is the unified cognitive platform that drives all RexusAI products, 
+                <p class="hero-sub"
+                    style="font-size: 1.25rem; margin-top: 16px; color: var(--text-muted); max-width: 800px;">
+                    The power behind the vision. RexusCore is the unified cognitive platform that drives all RexusAI
+                    products,
                     connecting visual understanding, language reasoning, and real-world execution.
                 </p>
             </div>
@@ -62,35 +68,161 @@
 
         <section class="glass">
             <div class="container">
-                <h2>Platform Architecture</h2>
-                <div class="architecture-img">
-                    [ Architecture Diagram Placeholder: Vision -> LLM Reasoning -> Tool Executor ]
+                <h2 class="gradient-text">Unified Intelligence Architecture</h2>
+                <div class="architecture-container"
+                    style="margin: 40px 0; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-soft); background: #000; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+                    <img src="../assets/rexus_architecture.png" alt="RexusCore Model Swapout Architecture"
+                        style="width: 100%; display: block;">
                 </div>
-                
+
                 <div class="feature-grid">
                     <div class="feature-card glass glass-hover">
-                        <h3 class="gradient-text">Unified Perception</h3>
+                        <h3 class="gradient-text">Frontier Model Swapout</h3>
                         <p style="margin-top: 12px; color: var(--text-muted);">
-                            RexusCore's vision engine translates snapshots and screens into structured spatial and semantic data, 
-                            allowing it to "see" as a human does.
+                            RexusCore is model-agnostic. Dynamically swap between Gemini, GPT-4o, and Claude for cloud
+                            reasoning,
+                            or drop in <b>Local Models (Llama/Mistral)</b> for absolute privacy and low-latency edge
+                            execution.
                         </p>
-                        <a href="vision.html" style="display:inline-block; margin-top:16px; color: var(--accent-primary);">Deep Dive: Vision →</a>
+                        <a href="reasoning.html"
+                            style="display:inline-block; margin-top:16px; color: var(--accent-primary); text-decoration: none; font-weight: 600;">Deep
+                            Dive: Reasoning Hub →</a>
                     </div>
                     <div class="feature-card glass glass-hover">
-                        <h3 class="gradient-text">Cognitive Reasoning</h3>
+                        <h3 class="gradient-text">Hardware Bridging (KeyCatcher)</h3>
                         <p style="margin-top: 12px; color: var(--text-muted);">
-                            Powered by state-of-the-art LLMs, the reasoning engine handles complex multi-step planning, 
-                            error recovery, and context maintenance.
+                            Direct integration with KeyCatcher hardware allows RexusCore to interpret physical
+                            keystrokes and BLE events
+                            as digital intent, creating a seamless bridge between hardware and AI logic.
                         </p>
-                        <a href="reasoning.html" style="display:inline-block; margin-top:16px; color: var(--accent-primary);">Deep Dive: Reasoning →</a>
+                        <a href="execution.html"
+                            style="display:inline-block; margin-top:16px; color: var(--accent-primary); text-decoration: none; font-weight: 600;">Deep
+                            Dive: Execution →</a>
                     </div>
                     <div class="feature-card glass glass-hover">
-                        <h3 class="gradient-text">Secure Execution</h3>
+                        <h3 class="gradient-text">Mobile Sensor Tunnelling</h3>
                         <p style="margin-top: 12px; color: var(--text-muted);">
-                            A sandboxed execution layer that translates plans into device actions via the KeyCatcher hardware bridge 
-                            or local system calls.
+                            Transform any mobile device into an intelligent sensor. Feed live camera, audio, and spatial
+                            data directly into the
+                            Core Runtime for real-world environmental awareness.
                         </p>
-                        <a href="execution.html" style="display:inline-block; margin-top:16px; color: var(--accent-primary);">Deep Dive: Execution →</a>
+                        <a href="vision.html"
+                            style="display:inline-block; margin-top:16px; color: var(--accent-primary); text-decoration: none; font-weight: 600;">Deep
+                            Dive: Vision Engine →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass">
+            <div class="container">
+                <h2 class="gradient-text">Operational Ecosystem</h2>
+                <p style="color: var(--text-muted); margin-top: 16px; max-width: 800px;">
+                    RexusCore isn't just a backend engine—it's a complete command and control environment.
+                    From real-time visual telemetry to autonomous job harvesting, our interfaces are designed for
+                    maximum visibility.
+                </p>
+
+                <div class="feature-grid" style="margin-top: 48px;">
+                    <div class="feature-card glass">
+                        <div
+                            style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft); background: #000; aspect-ratio: 16/14;">
+                            <img src="../assets/rexus_dash_command.png" alt="Rexus Command Center"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="gradient-text" style="margin-top: 24px;">Command Center</h3>
+                        <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.9rem;">
+                            The central nervous system. Featuring live vision streams, system resource telemetry,
+                            and a direct neural interface for real-time model interaction.
+                        </p>
+                    </div>
+
+                    <div class="feature-card glass">
+                        <div
+                            style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft); background: #000; aspect-ratio: 16/14;">
+                            <img src="../assets/rexus_dash_jobs.png" alt="Job Leads Pipeline"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="gradient-text" style="margin-top: 24px;">Career Pipeline</h3>
+                        <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.9rem;">
+                            Autonomous job harvesting and tracking. RexusCore scans incoming leads,
+                            analyzes requirements, and manages the end-to-end application lifecycle.
+                        </p>
+                    </div>
+
+                    <div class="feature-card glass">
+                        <div
+                            style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft); background: #000; aspect-ratio: 16/14;">
+                            <img src="../assets/rexus_dash_macros.png" alt="Macro Studio"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="gradient-text" style="margin-top: 24px;">Macro Studio</h3>
+                        <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.9rem;">
+                            The automation forge. Build complex system-level macros and chained actions
+                            that bridge multiple software environments and physical hardware.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass">
+            <div class="container">
+                <h2 class="gradient-text">Autonomous Workflows in Action</h2>
+                <p style="color: var(--text-muted); margin-top: 16px; max-width: 800px;">
+                    Behold the transition from reasoning to physical execution. These demos showcase RexusCore
+                    navigating
+                    high-friction environments like ChatGPT and Workday with zero human intervention.
+                </p>
+
+                <div class="feature-grid" style="margin-top: 48px;">
+                    <!-- Demo 1 -->
+                    <div class="feature-card glass">
+                        <div
+                            style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft); background: #000; aspect-ratio: 16/9;">
+                            <video controls style="width: 100%; height: 100%; object-fit: cover;">
+                                <source src="../assets/videos/demo_recommendation.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <h3 class="gradient-text" style="margin-top: 24px;">Phase 1: Cognitive Intelligence</h3>
+                        <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.9rem;">
+                            <b>The Recommendation:</b> RexusCore uses the Model Swapout Hub to coordinate with ChatGPT,
+                            ingesting project data and career history to identify the perfect job lead.
+                        </p>
+                    </div>
+
+                    <!-- Demo 2 -->
+                    <div class="feature-card glass">
+                        <div
+                            style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft); background: #000; aspect-ratio: 16/9;">
+                            <video controls style="width: 100%; height: 100%; object-fit: cover;">
+                                <source src="../assets/videos/demo_apply.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <h3 class="gradient-text" style="margin-top: 24px;">Phase 2: Intent Execution</h3>
+                        <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.9rem;">
+                            <b>The Application:</b> Taking the AI-generated recommendation and cover page,
+                            the Browser Agent navigates the portal and executes the submission.
+                        </p>
+                    </div>
+
+                    <!-- Demo 3 -->
+                    <div class="feature-card glass">
+                        <div
+                            style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft); background: #000; aspect-ratio: 16/9;">
+                            <video controls style="width: 100%; height: 100%; object-fit: cover;">
+                                <source src="../assets/videos/demo_workday.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <h3 class="gradient-text" style="margin-top: 24px;">Phase 3: Deep Extraction</h3>
+                        <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.9rem;">
+                            <b>Zero-Friction Workday:</b> Using just a raw resume PDF, the Vision Engine maps the
+                            Workday
+                            schema and populates the entire application with 100% accuracy.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -98,10 +230,10 @@
 
         <section>
             <div class="container">
-                <h2>Why RexusCore?</h2>
+                <h2 class="gradient-text">Why RexusCore?</h2>
                 <p style="color: var(--text-muted); max-width: 800px; margin-top: 16px;">
-                    Traditional automation is fragile. RexusCore is resilient. By combining visual state awareness 
-                    with large language model reasoning, we create systems that can handle the unexpected, 
+                    Traditional automation is fragile. RexusCore is resilient. By combining visual state awareness
+                    with large language model reasoning, we create systems that can handle the unexpected,
                     recover from errors, and provide a truly accessible human-in-the-loop experience.
                 </p>
             </div>
@@ -150,4 +282,5 @@
         </div>
     </footer>
 </body>
+
 </html>

@@ -28,43 +28,50 @@
     </nav>
 
     <main>
-        <section>
+        <section class="hero-section">
             <div class="container animate-up">
-                <a href="/rexuscore/" style="color: var(--accent-secondary); text-decoration: none; font-weight: 600;">←
-                    Back to RexusCore</a>
-                <h1 class="gradient-text" style="margin-top: 24px;">Secure Execution</h1>
-                <p style="margin-top: 16px; color: var(--text-muted); max-width: 700px; font-size: 1.2rem;">
-                    The Execution Layer is where AI meets the real world.
-                    It translates high-level decisions into physical keyboard inputs and system calls.
+                <a href="/rexuscore/"
+                    style="color: var(--accent-primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.2rem;">←</span> Back to RexusCore
+                </a>
+                <h1 class="gradient-text" style="margin-top: 24px;">Secure Execution Layer</h1>
+                <p class="hero-sub"
+                    style="margin-top: 16px; color: var(--text-muted); max-width: 800px; font-size: 1.25rem;">
+                    The Execution Layer is where digital intent becomes physical action.
+                    By utilizing specialized hardware bridges, RexusCore interacts with systems at the <b>Peripheral
+                        Level</b>, bypassing the limitations of traditional software automation.
                 </p>
             </div>
         </section>
 
         <section class="glass">
             <div class="container">
-                <h2>Execution Channels</h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 40px;">
-                    <div class="feature-card">
-                        <h3>Hardware Bridge</h3>
+                <h2 class="gradient-text">Execution Channels</h2>
+                <div class="feature-grid" style="margin-top: 40px;">
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">KeyCatcher Hardware Bridge</h3>
                         <p style="color: var(--text-muted); margin-top: 12px;">
-                            Through <b>KeyCatcher</b>, RexusCore can interact with locked-down devices as a standard HID
-                            keyboard,
-                            bypassing software restrictions on copy/paste or automated scripts.
+                            Through <b>KeyCatcher</b>, RexusCore acts as a standard HID keyboard/mouse.
+                            This allows it to operate within locked Citrix environments, BIOS screens, and legacy
+                            systems
+                            where software agents are prohibited or impossible to install.
                         </p>
                     </div>
-                    <div class="feature-card">
-                        <h3>Dynamic Tooling</h3>
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Orchestrated Tooling</h3>
                         <p style="color: var(--text-muted); margin-top: 12px;">
-                            The platform can invoke local system tools, APIs, and custom scripts,
-                            orchestrating complex workflows across multiple applications.
+                            The runtime can invoke an array of specialized tools—from Playwright for web automation
+                            to custom Python executors—orchestrating complex workflows across disparate applications
+                            as a single unified stream.
                         </p>
                     </div>
-                    <div class="feature-card">
-                        <h3>Audited Actions</h3>
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Human-in-the-Loop Safe</h3>
                         <p style="color: var(--text-muted); margin-top: 12px;">
-                            Every keystroke and command is logged. The human-in-the-loop can review,
-                            override, or pause the execution at any time to ensure absolute control.
+                            Execution is never "black box." Every keystroke and click is performed via an audited
+                            dispatcher.
+                            Users can monitor live telemetry, pause execution, or override actions in real-time via the
+                            Rexus Command Center.
                         </p>
                     </div>
                 </div>
@@ -73,11 +80,12 @@
 
         <section>
             <div class="container">
-                <h2>Bypassing Friction</h2>
-                <p style="color: var(--text-muted); max-width: 800px; margin-top: 16px;">
-                    The execution core is designed to overcome the hardest barriers in enterprise automation:
-                    Citrix environments, virtual desktops, and legacy applications without APIs.
-                    If a human can type it, RexusCore can execute it.
+                <h2 class="gradient-text">Zero-Friction Automation</h2>
+                <p style="color: var(--text-muted); max-width: 800px; margin-top: 16px; line-height: 1.6;">
+                    The core philosophy of RexusCore execution is <b>Universal Compatibility</b>.
+                    If a human can interact with a device using a keyboard and screen, RexusCore can automate it.
+                    We remove the "API Wall" that stops traditional RPA, enabling accessibility across the entire
+                    enterprise stack.
                 </p>
             </div>
         </section>
@@ -85,6 +93,40 @@
 
     <footer>
         <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-brand">
+                        <img src="../assets/rai.png" alt="RexusAI">
+                        <span>RexusAI</span>
+                    </div>
+                    <p>Bridging the accessibility gap with applied AI.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="/rexuscore/">RexusCore</a></li>
+                        <li><a href="/rexuscore/vision.html">Vision Engine</a></li>
+                        <li><a href="/rexuscore/reasoning.html">Reasoning</a></li>
+                        <li><a href="/rexuscore/execution.html">Execution</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="/#keycatcher">KeyCatcher</a></li>
+                        <li><a href="/#sightline">Sightline</a></li>
+                        <li><a href="/agent.html">Form Agent</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://github.com/escuber">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/jim-gaudette/">LinkedIn</a></li>
+                        <li><a href="mailto:jimgaudette@gmail.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="copyright">
                 &copy; 2026 RexusAI. All rights reserved.
             </div>

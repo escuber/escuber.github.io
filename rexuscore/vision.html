@@ -28,43 +28,48 @@
     </nav>
 
     <main>
-        <section>
+        <section class="hero-section">
             <div class="container animate-up">
-                <a href="/rexuscore/" style="color: var(--accent-secondary); text-decoration: none; font-weight: 600;">←
-                    Back to RexusCore</a>
+                <a href="/rexuscore/"
+                    style="color: var(--accent-primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.2rem;">←</span> Back to RexusCore
+                </a>
                 <h1 class="gradient-text" style="margin-top: 24px;">Vision Engine</h1>
-                <p style="margin-top: 16px; color: var(--text-muted); max-width: 700px; font-size: 1.2rem;">
-                    The Vision Engine is the primary sensory organ of RexusCore.
-                    It interprets pixels as semantic components, enabling AI to navigate digital interfaces with
-                    human-like understanding.
+                <p class="hero-sub"
+                    style="margin-top: 16px; color: var(--text-muted); max-width: 800px; font-size: 1.25rem;">
+                    The Vision Engine is the primary sensory gateway of RexusCore.
+                    Beyond simple OCR, it uses state-of-the-art <b>VLMs (Vision-Language Models)</b> to interpret
+                    digital and physical environments as living semantic maps.
                 </p>
             </div>
         </section>
 
         <section class="glass">
             <div class="container">
-                <h2>Capabilities</h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 40px;">
-                    <div class="feature-card">
-                        <h3>Semantic Mapping</h3>
+                <h2 class="gradient-text">Multisensor Perception</h2>
+                <div class="feature-grid" style="margin-top: 40px;">
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Semantic UI Mapping</h3>
                         <p style="color: var(--text-muted); margin-top: 12px;">
-                            Identifies form fields, buttons, labels, and their relationships.
-                            If a label says "First Name", the engine knows exactly which input box it belongs to.
+                            The engine identifies complex UI hierarchies—buttons, tables, and nested forms.
+                            It doesn't just see text; it understands the <i>relationship</i> between a label and its
+                            input.
                         </p>
                     </div>
-                    <div class="feature-card">
-                        <h3>Error Detection</h3>
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Mobile Sensor Tunnelling</h3>
                         <p style="color: var(--text-muted); margin-top: 12px;">
-                            Recognizes visual change states, such as a field turning red or a warning message appearing,
-                            allowing the system to self-correct in real-time.
+                            By tunnelling live mobile camera feeds into the core, RexusCore gains <b>Spatial
+                                Awareness</b>
+                            of your physical workspace, allowing for cross-device environmental intelligence.
                         </p>
                     </div>
-                    <div class="feature-card">
-                        <h3>Spatial Awareness</h3>
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Real-time Scene Analysis</h3>
                         <p style="color: var(--text-muted); margin-top: 12px;">
-                            Maps the coordinates of every element, enabling precision interaction regardless of screen
-                            resolution or scaling.
+                            Recognizes dynamic states like loading spinners, error dialogs, and layout shifts.
+                            The Vision Engine interprets these as "Environment Events" for the reasoning core to
+                            process.
                         </p>
                     </div>
                 </div>
@@ -73,11 +78,12 @@
 
         <section>
             <div class="container">
-                <h2>Human-in-the-Loop Transparency</h2>
-                <p style="color: var(--text-muted); max-width: 800px; margin-top: 16px;">
-                    Every visual inference made by RexusCore is logged and can be audited.
-                    The user can see what the AI "saw" and why it made specific decisions,
-                    ensuring safety and trust in complex workflows.
+                <h2 class="gradient-text">VLM Orchestration</h2>
+                <p style="color: var(--text-muted); max-width: 800px; margin-top: 16px; line-height: 1.6;">
+                    Whether it's a high-precision snap of a Citrix window or a grainy mobile shot of a physical monitor,
+                    RexusCore routes the visual payload to the optimized model—be it <b>Gemini 2.0 Flash</b> for speed
+                    or
+                    <b>GPT-4 Vision</b> for complex document understanding. Every frame is treated as a queryable state.
                 </p>
             </div>
         </section>
@@ -85,6 +91,40 @@
 
     <footer>
         <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-brand">
+                        <img src="../assets/rai.png" alt="RexusAI">
+                        <span>RexusAI</span>
+                    </div>
+                    <p>Bridging the accessibility gap with applied AI.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="/rexuscore/">RexusCore</a></li>
+                        <li><a href="/rexuscore/vision.html">Vision Engine</a></li>
+                        <li><a href="/rexuscore/reasoning.html">Reasoning</a></li>
+                        <li><a href="/rexuscore/execution.html">Execution</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="/#keycatcher">KeyCatcher</a></li>
+                        <li><a href="/#sightline">Sightline</a></li>
+                        <li><a href="/agent.html">Form Agent</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://github.com/escuber">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/jim-gaudette/">LinkedIn</a></li>
+                        <li><a href="mailto:jimgaudette@gmail.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="copyright">
                 &copy; 2026 RexusAI. All rights reserved.
             </div>
