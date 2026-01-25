@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbital Drift | Pilot Perspective</title>
+    <link rel="stylesheet" href="pilot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- Three.js Canvas will be injected here -->
+
+        <!-- Cockpit HUD Overlay -->
+        <div id="cockpit-overlay">
+            <div class="hud-top">
+                <div class="scanner glass">
+                    <div class="scanner-grid"></div>
+                    <div class="scanner-target" id="target-marker"></div>
+                </div>
+            </div>
+
+            <div class="hud-center">
+                <div class="crosshair">
+                    <div class="circle"></div>
+                    <div class="lines"></div>
+                </div>
+            </div>
+
+            <div class="hud-bottom">
+                <div class="h-panel glass left">
+                    <div class="stat-group">
+                        <label>VELOCITY</label>
+                        <div class="value" id="vel-val">0.00</div>
+                    </div>
+                    <div class="stat-group">
+                        <label>ALTITUDE</label>
+                        <div class="value" id="alt-val">0.00</div>
+                    </div>
+                </div>
+
+                <div class="h-panel glass right">
+                    <div class="stat-group">
+                        <label>THRUST</label>
+                        <div class="thrust-meter">
+                            <div class="thrust-bar" id="thrust-bar"></div>
+                        </div>
+                        <div class="value" id="thrust-lvl">1</div>
+                    </div>
+                    <div class="stat-group">
+                        <label>GRAVITY</label>
+                        <div class="value" id="grav-val">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="alerts"></div>
+        </div>
+
+        <div id="boot-screen" class="glass">
+            <div class="terminal-content">
+                <h1 class="glitch" data-text="COCKPIT INITIALIZED">COCKPIT INITIALIZED</h1>
+                <p>SYSTEM CHECK... <span class="status">OK</span></p>
+                <p>GRAVITY DRIVE... <span class="status">OK</span></p>
+                <p>LASER CANNON... <span class="status">OK</span></p>
+                <button id="ignite-btn">ENGAGE PILOT MODE</button>
+            </div>
+            <div class="controls-hint">
+                <p><span>Arrows / WASD</span> Pitch & Yaw | <span>Q/E</span> Roll</p>
+                <p><span>SPACE</span> Thrust | <span>F</span> Fire | <span>1-9</span> Power</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="pilot.js"></script>
+</body>
+
+</html>

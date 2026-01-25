@@ -1,0 +1,238 @@
+:root {
+    --hud-green: #00ff95;
+    --hud-blue: #00f2ff;
+    --hud-alert: #ff3c00;
+    --glass-bg: rgba(0, 20, 30, 0.4);
+    --glass-border: rgba(0, 242, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+    user-select: none;
+}
+
+body {
+    background: #000;
+    color: var(--hud-blue);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+}
+
+#cockpit-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    z-index: 10;
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+}
+
+/* TOP HUD */
+.hud-top {
+    display: flex;
+    justify-content: center;
+}
+
+.scanner {
+    width: 180px;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    border-top: none;
+    border-radius: 0 0 40px 40px;
+}
+
+.scanner-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 242, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+#target-marker {
+    width: 6px;
+    height: 6px;
+    background: var(--hud-alert);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px var(--hud-alert);
+}
+
+/* CENTER CROSSHAIR */
+.hud-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crosshair {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.crosshair .circle {
+    position: absolute;
+    inset: 20%;
+    border: 1px solid var(--hud-blue);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.crosshair .lines {
+    position: absolute;
+    inset: 0;
+}
+
+.crosshair .lines::before,
+.crosshair .lines::after {
+    content: '';
+    position: absolute;
+    background: var(--hud-blue);
+}
+
+.crosshair .lines::before {
+    top: 50%;
+    left: 0;
+    width: 30px;
+    height: 1px;
+}
+
+.crosshair .lines::after {
+    top: 50%;
+    right: 0;
+    width: 30px;
+    height: 1px;
+}
+
+/* BOTTOM HUD */
+.hud-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.h-panel {
+    padding: 1.5rem;
+    min-width: 200px;
+}
+
+.stat-group {
+    margin-bottom: 1rem;
+}
+
+.stat-group label {
+    font-size: 0.6rem;
+    color: var(--hud-blue);
+    opacity: 0.7;
+    display: block;
+}
+
+.stat-group .value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px var(--hud-blue);
+}
+
+.thrust-meter {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 4px;
+    border: 1px solid var(--glass-border);
+}
+
+.thrust-bar {
+    height: 100%;
+    background: var(--hud-green);
+    width: 0%;
+    transition: width 0.1s;
+    box-shadow: 0 0 10px var(--hud-green);
+}
+
+/* BOOT SCREEN */
+#boot-screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 5, 10, 0.95);
+    z-index: 100;
+    pointer-events: auto;
+}
+
+.terminal-content {
+    text-align: center;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--hud-blue);
+    text-shadow: 2px 2px var(--hud-alert);
+}
+
+.status {
+    color: var(--hud-green);
+    font-weight: bold;
+}
+
+button {
+    margin-top: 3rem;
+    padding: 1rem 3rem;
+    background: transparent;
+    color: var(--hud-blue);
+    border: 1px solid var(--hud-blue);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: var(--hud-blue);
+    color: #000;
+    box-shadow: 0 0 30px var(--hud-blue);
+}
+
+.controls-hint {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    text-align: center;
+}
+
+.controls-hint span {
+    color: var(--hud-alert);
+}
