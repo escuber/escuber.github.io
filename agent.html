@@ -1,291 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- <img src="assets/rai.png" alt="RexusAi icon" style="width:34px;height:34px" /> -->
-  <!-- <title>RexusAi | Accessibility Form Agent</title> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Agent | Accessibility First by RexusAI</title>
+  <meta name="description"
+    content="Helping users complete complex web forms from photos of documents with a human in the loop.">
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0b0f14;
-      --panel: #121823;
-      --ink: #e8eef6;
-      --muted: #a9b6c4;
-      --accent: #6ad1ff;
-      --accent-2: #b18cff;
-    }
-
-    * {
-      box-sizing: border-box
-    }
-
-    html,
-    body {
-      height: 100%
-    }
-
-    body {
-      margin: 0;
-      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--ink);
-      background: radial-gradient(1200px 1200px at 10% -20%, #182131 0%, var(--bg) 50%) fixed
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none
-    }
-
-    a:hover {
-      text-decoration: underline
-    }
-
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px
-    }
-
-    header {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0 6px
-    }
-
-    .brand {
-      display: flex;
-      gap: 12px;
-      align-items: center
-    }
-
-    .logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: conic-gradient(from 120deg, var(--accent), var(--accent-2));
-      filter: drop-shadow(0 4px 18px rgba(106, 209, 255, .35))
-    }
-
-    nav a {
-      margin-left: 18px;
-      color: var(--muted);
-      font-weight: 600
-    }
-
-    nav a.active {
-      color: var(--ink)
-    }
-
-    .hero {
-      margin: 18px 0 28px;
-      padding: 28px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(97, 128, 255, .12), rgba(0, 0, 0, .25));
-      border: 1px solid rgba(255, 255, 255, .08)
-    }
-
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: 32px;
-      letter-spacing: .2px
-    }
-
-    .hero p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 800px
+    .product-hero {
+      padding: 120px 0 60px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
     }
 
     .card {
-      background: var(--panel);
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 16px;
-      padding: 16px
+      padding: 32px;
+      border-radius: var(--radius-md);
     }
 
     .card h3 {
-      margin: 4px 0 6px;
-      font-size: 18px
+      margin-bottom: 16px;
+      color: var(--accent-primary);
     }
 
-    .card p {
-      margin: 0 0 10px;
-      color: var(--muted)
+    .card ul {
+      margin-left: 20px;
+      color: var(--text-muted);
     }
 
-    section {
-      margin: 34px 0
-    }
-
-    section h2 {
-      font-size: 22px;
-      margin: 0 0 12px
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 18px
-    }
-
-    li {
-      margin: 6px 0;
-      color: var(--ink)
-    }
-
-    .muted {
-      color: var(--muted)
-    }
-
-    .kbd {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      background: rgba(255, 255, 255, .06);
-      padding: 2px 6px;
-      border-radius: 6px
+    .card li {
+      margin-bottom: 8px;
     }
 
     .callout {
-      border-left: 3px solid var(--accent);
-      padding: 10px 14px;
-      background: rgba(106, 225, 255, .06);
-      border-radius: 8px
-    }
-
-    footer {
-      margin: 40px 0 16px;
-      color: var(--muted);
-      font-size: 14px;
-      text-align: center
-    }
-
-    .video {
-      aspect-ratio: 16/9;
-      background: #000;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .08)
-    }
-
-    .video iframe {
-      width: 100%;
-      height: 100%;
-      display: block
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      margin-top: 60px;
+      border-left: 4px solid var(--accent-primary);
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <!-- <img src="assets/rai.png" alt="RexusAi icon" style="width:60px;height:60px" /> -->
-        <div class="brand">
-          <img src="assets/rai.png" alt="RexusAi icon" style="width:60px;height:60px" />
-          <!-- <div class="logo" aria-hidden="true"></div> -->
-          <strong>RexusAi</strong>
-        </div>
-        <!-- <div class="logo" aria-hidden="true"></div> -->
-        <!-- <strong>RexusAi</strong> -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="/" class="nav-brand">
+        <img src="assets/rai.png" alt="RexusAI">
+        <span>RexusAI</span>
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#products">Products</a>
+        <a href="/rexuscore/">RexusCore</a>
+        <a href="/games.html">Games</a>
       </div>
-      <nav>
-        <a href="local.html" class="active">Local Lab</a>
-        <a href="agent.html">Accessibility Form Automatic Filling Agent</a>
-      </nav>
-    </header>
+    </div>
+  </nav>
 
-    <section class="hero">
-      <h1>Accessibility First Form Agent</h1>
-      <p>Helping users complete complex web forms from photos of documents with a human in the loop. Built to reduce
-        friction for assistive tech users and high-cognitive-load tasks.</p>
+  <main class="container">
+    <section class="product-hero animate-up">
+      <h1 class="gradient-text">Accessibility Form Agent</h1>
+      <p style="font-size: 1.25rem; color: var(--text-muted); margin-top: 16px; max-width: 800px;">
+        Bridging the gap between paper and digital.
+        Complete complex web forms from document photos with AI-guided assistance and human-in-the-loop control.
+      </p>
     </section>
 
-    <section>
-      <div class="grid">
-        <div class="card">
-          <h3>Mission</h3>
-          <ul>
-            <li>Reduce friction for people using screen readers, keyboard only navigation, or motor aids.</li>
-            <li>Lower cognitive load for ADHD and executive function challenges.</li>
-            <li>Keep user control, privacy, and auditability at the core.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>What it does</h3>
-          <ul>
-            <li>Parses photos of paper documents and page screenshots into structured data.</li>
-            <li>Maps values to fields across multi step flows and conditional logic.</li>
-            <li>Crafts guided answers to resume questions to avoid extra prompts.</li>
-            <li>Detects errors and performs self recovery to the right step.</li>
-            <li>Returns a draft for the requester to approve.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>How it works</h3>
-          <ul>
-            <li>OpenAI vision, OCR, and LLM APIs for perception and reasoning.</li>
-            <li>Python agent services with page memory and retries.</li>
-            <li>MAUI client for capture, review, and transport.</li>
-          </ul>
-        </div>
+    <section class="grid">
+      <div class="card glass">
+        <h3>Our Mission</h3>
+        <ul>
+          <li>Reduce friction for screen reader and motor aid users.</li>
+          <li>Lower cognitive load for ADHD and executive function challenges.</li>
+          <li>Ensure user control, privacy, and full auditability.</li>
+        </ul>
+      </div>
+      <div class="card glass">
+        <h3>Key Features</h3>
+        <ul>
+          <li>Parse paper documents and screenshots into structured data.</li>
+          <li>Multi-step field mapping and conditional logic handling.</li>
+          <li>Auto-detection of errors with intelligent self-recovery.</li>
+          <li>Draft approval system: you always have the final say.</li>
+        </ul>
+      </div>
+      <div class="card glass">
+        <h3>Built on RexusCore</h3>
+        <ul>
+          <li>OpenAI Vision & Reasoning integration.</li>
+          <li>Robust Python agent services with page memory.</li>
+          <li>Seamless transport via MAUI client.</li>
+        </ul>
       </div>
     </section>
 
-    <section>
-      <h2>Accessibility commitments</h2>
-      <ul>
-        <li>WCAG 2.2 AA targets for contrast, focus, semantics, and keyboard access.</li>
-        <li>Screen reader labels with <span class="kbd">aria-label</span>, <span class="kbd">aria-describedby</span>,
-          and correct roles.</li>
-        <li>Keyboard first flows with logical tab order and visible focus rings.</li>
-        <li>Status messages via <span class="kbd">aria-live</span> regions, polite for progress and assertive for
-          errors.</li>
-        <li>Clear, reversible actions and explicit error prevention with field validation before submit.</li>
-        <li>Human in the loop: drafts always require user approval before final submit.</li>
-        <li>Privacy by design: minimal collection, local processing where possible, and short retention windows.</li>
-      </ul>
+    <section style="margin-top: 80px;">
+      <h2>Accessibility Commitment</h2>
+      <p style="color: var(--text-muted); margin-top: 16px; max-width: 800px;">
+        We target WCAG 2.2 AA standards across all our interfaces.
+        From keyboard-first navigation to aria-live regions for status updates,
+        our tools are built to be used by everyone.
+      </p>
     </section>
 
-    <section>
-      <h2>Pipeline</h2>
-      <ol>
-        <li>Extract fields and options from the current page.</li>
-        <li>Parse document images to structured data.</li>
-        <li>Match values to fields with confidence notes and assumptions.</li>
-        <li>Submit and watch for validation errors or redirects.</li>
-        <li>Produce an audit log with steps, timestamps, and decisions.</li>
-      </ol>
-    </section>
-<!-- 
-    <section>
-      <h2>Demo</h2>
-      <p class="muted">Drop your embed here when ready.</p>
-      <div class="video">
-        <iframe src="https://www.youtube.com/embed/XXXXXXXXXXX" title="Demo" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+    <div class="callout glass">
+      <h3 class="gradient-text">The Outcome</h3>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 12px;">
+        Faster, more accurate form completion with absolute user control and a clear audit trail.
+        What started as a tool for job forms has evolved into a versatile agent capable of handling
+        any complex documentation workflow.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        &copy; 2026 RexusAI. All rights reserved.
       </div>
-    </section> -->
-
-    <section class="callout">
-      <strong>Outcome:</strong> Faster, more accurate form completion with user control, better accessibility, and a
-      clear audit trail.
-         <strong>Suprise:</strong> Because we trined it on job forms generically it is really good at any and all forms.  It just needs the docs to pull the info  from.
-    </section>
-
-    <footer>
-      <div>All product names and brands are property of their respective owners.</div>
-      <div>Copyright © <span id="yr"></span> RexusAi</div>
-    </footer>
-  </div>
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+    </div>
+  </footer>
 </body>
 
 </html>

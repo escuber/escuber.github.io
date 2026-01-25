@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RexusCore | The Engine of RexusAI</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .feature-card {
+            padding: 32px;
+            border-radius: var(--radius-md);
+        }
+        .architecture-img {
+            width: 100%;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--border-soft);
+            margin: 40px 0;
+            color: var(--text-faint);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <a href="/" class="nav-brand">
+                <img src="../assets/rai.png" alt="RexusAI">
+                <span>RexusAI</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#products">Products</a>
+                <a href="/rexuscore/" class="active">RexusCore</a>
+                <a href="/games.html">Games</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <div class="container animate-up">
+                <h1 class="gradient-text">RexusCore</h1>
+                <p class="hero-sub" style="font-size: 1.25rem; margin-top: 16px; color: var(--text-muted); max-width: 800px;">
+                    The power behind the vision. RexusCore is the unified cognitive platform that drives all RexusAI products, 
+                    connecting visual understanding, language reasoning, and real-world execution.
+                </p>
+            </div>
+        </section>
+
+        <section class="glass">
+            <div class="container">
+                <h2>Platform Architecture</h2>
+                <div class="architecture-img">
+                    [ Architecture Diagram Placeholder: Vision -> LLM Reasoning -> Tool Executor ]
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Unified Perception</h3>
+                        <p style="margin-top: 12px; color: var(--text-muted);">
+                            RexusCore's vision engine translates snapshots and screens into structured spatial and semantic data, 
+                            allowing it to "see" as a human does.
+                        </p>
+                        <a href="vision.html" style="display:inline-block; margin-top:16px; color: var(--accent-primary);">Deep Dive: Vision →</a>
+                    </div>
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Cognitive Reasoning</h3>
+                        <p style="margin-top: 12px; color: var(--text-muted);">
+                            Powered by state-of-the-art LLMs, the reasoning engine handles complex multi-step planning, 
+                            error recovery, and context maintenance.
+                        </p>
+                        <a href="reasoning.html" style="display:inline-block; margin-top:16px; color: var(--accent-primary);">Deep Dive: Reasoning →</a>
+                    </div>
+                    <div class="feature-card glass glass-hover">
+                        <h3 class="gradient-text">Secure Execution</h3>
+                        <p style="margin-top: 12px; color: var(--text-muted);">
+                            A sandboxed execution layer that translates plans into device actions via the KeyCatcher hardware bridge 
+                            or local system calls.
+                        </p>
+                        <a href="execution.html" style="display:inline-block; margin-top:16px; color: var(--accent-primary);">Deep Dive: Execution →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Why RexusCore?</h2>
+                <p style="color: var(--text-muted); max-width: 800px; margin-top: 16px;">
+                    Traditional automation is fragile. RexusCore is resilient. By combining visual state awareness 
+                    with large language model reasoning, we create systems that can handle the unexpected, 
+                    recover from errors, and provide a truly accessible human-in-the-loop experience.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-brand">
+                        <img src="../assets/rai.png" alt="RexusAI">
+                        <span>RexusAI</span>
+                    </div>
+                    <p>Bridging the accessibility gap with applied AI.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="/rexuscore/">RexusCore</a></li>
+                        <li><a href="/rexuscore/vision.html">Vision Engine</a></li>
+                        <li><a href="/rexuscore/reasoning.html">Reasoning</a></li>
+                        <li><a href="/rexuscore/execution.html">Execution</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="/#keycatcher">KeyCatcher</a></li>
+                        <li><a href="/#sightline">Sightline</a></li>
+                        <li><a href="/agent.html">Form Agent</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://github.com/escuber">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/jim-gaudette/">LinkedIn</a></li>
+                        <li><a href="mailto:jimgaudette@gmail.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 RexusAI. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

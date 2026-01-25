@@ -1,415 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RexusAI — Accessibility-First AI Systems</title>
-  <meta name="description" content="RexusAI is an applied AI lab building human-controlled systems that bridge accessibility gaps in complex digital workflows." />
-
+  <meta name="description"
+    content="RexusAI is an applied AI lab building human-controlled systems that bridge accessibility gaps in complex digital workflows.">
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-main: #0b0f14;
-      --bg-panel: #111824;
-      --bg-soft: #141c2b;
-
-      --text-main: #e6ebf2;
-      --text-muted: #9aa6bd;
-      --text-faint: #6f7a92;
-
-      --accent-primary: #4fd1c5;
-      --accent-secondary: #7aa2f7;
-      --accent-glow: rgba(79, 209, 197, 0.35);
-
-      --border-soft: rgba(255, 255, 255, 0.08);
-      --radius: 14px;
-      --radius-sm: 10px;
+    .hero-section {
+      padding: 160px 0 100px;
+      text-align: center;
     }
 
-    * {
-      box-sizing: border-box;
+    .hero-section h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      margin-bottom: 24px;
     }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
-      background: radial-gradient(
-          1200px 600px at 20% -10%,
-          rgba(122, 162, 247, 0.12),
-          transparent 60%
-        ),
-        radial-gradient(
-          900px 500px at 90% 10%,
-          rgba(79, 209, 197, 0.10),
-          transparent 55%
-        ),
-        var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--accent-primary);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    header {
-      padding: 48px 24px 32px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    header img.logo {
-      height: 200px;
-      margin-bottom: 28px;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      font-weight: 700;
-      margin: 0 0 12px;
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      margin: 0 0 16px;
-      font-weight: 600;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      margin: 0 0 6px;
-      font-weight: 600;
-    }
-
-    p {
-      margin: 0 0 16px;
+    .hero-section p {
+      font-size: 1.25rem;
       color: var(--text-muted);
-    }
-
-    .hero-sub {
       max-width: 700px;
-      font-size: 1.05rem;
-      color: var(--text-muted);
+      margin: 0 auto 40px;
     }
 
-    .cta-row {
-      margin-top: 28px;
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 12px 18px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-soft);
-      background: var(--bg-panel);
-      color: var(--text-main);
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .btn.primary {
-      background: linear-gradient(
-        135deg,
-        var(--accent-primary),
-        var(--accent-secondary)
-      );
-      color: #0b0f14;
-      border: none;
-      box-shadow: 0 0 0 transparent;
-    }
-
-    .btn.primary:hover {
-      box-shadow: 0 0 18px var(--accent-glow);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 56px 24px;
-    }
-
-    .panel {
-      background: linear-gradient(
-        180deg,
-        var(--bg-panel),
-        var(--bg-soft)
-      );
-      border-radius: var(--radius);
-      padding: 32px;
-      border: 1px solid var(--border-soft);
-    }
-
-    .mission {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .products {
+    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 80px;
     }
 
-    .product {
-      background: linear-gradient(
-        180deg,
-        var(--bg-panel),
-        var(--bg-soft)
-      );
-      border-radius: var(--radius);
-      padding: 24px;
-      border: 1px solid var(--border-soft);
-    }
-
-    .product .status {
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--accent-secondary);
-      margin-bottom: 8px;
-    }
-
-    .foundation {
+    .stat-card {
+      padding: 32px;
+      border-radius: var(--radius-md);
       text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
     }
 
-    .divider {
-      height: 1px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(255,255,255,0.15),
-        transparent
-      );
-      margin: 32px 0;
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      display: block;
     }
 
-    footer {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 24px 56px;
+    .stat-label {
       color: var(--text-faint);
-      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.8rem;
     }
 
-    footer .links {
-      margin-top: 8px;
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
     }
 
-    footer a {
-      margin-right: 14px;
+    .product-card {
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card .status {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 0.7rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(79, 209, 197, 0.15);
+      color: var(--accent-primary);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .product-card h3 {
+      margin-bottom: 16px;
+    }
+
+    .product-card p {
       color: var(--text-muted);
+      margin-bottom: 24px;
     }
-
-  .hero {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  position: relative;
-  padding: 64px 0 56px; /* ← remove side padding */
-  background:
-    linear-gradient(
-      110deg,
-      rgba(122, 162, 247, 0.22),
-      rgba(79, 209, 197, 0.14) 40%,
-      transparent 72%
-    );
-  border-bottom: 1px solid var(--border-soft);
-}
-
-.hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px; /* ← this is the key */
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-
-.logo {
-  height: 120px; /* much better than 200px */
-  filter:
-    drop-shadow(0 0 18px rgba(79, 209, 197, 0.35))
-    drop-shadow(0 0 6px rgba(122, 162, 247, 0.25));
-}
-
-.hero-text h1 {
-  margin-top: 0;
-}
-
-@media (max-width: 768px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .logo {
-    height: 100px;
-  }
-
-  .cta-row {
-    justify-content: center;
-  }
-}
-.hero-text h1 {
-  background: linear-gradient(
-    90deg,
-    #e6ebf2,
-    #9fdcff
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.hero-divider {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255,255,255,0.18),
-    transparent
-  );
-}
   </style>
 </head>
 
 <body>
-
-
-<header class="hero">
-  <div class="hero-inner">
-    <div class="brand">
-      <img src="assets/rai.png" alt="RexusAI logo" class="logo" />
-    </div>
-
-    <div class="hero-text">
-      <h1>RexusAI</h1>
-      <p class="hero-sub">
-        Using AI to help bridge the accessibility gap across the internet.
-      </p>
-
-      <div class="cta-row">
-      <!--  <a class="btn primary" href="#products">View Products</a>-->
+  <nav>
+    <div class="container nav-inner">
+      <a href="/" class="nav-brand">
+        <img src="assets/rai.png" alt="RexusAI">
+        <span>RexusAI</span>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="active">Home</a>
+        <a href="#products">Products</a>
+        <a href="/rexuscore/">RexusCore</a>
+        <a href="/games.html">Games</a>
       </div>
     </div>
-  </div>
-  <div class="hero-divider"></div>
-</header>
-  <section id="about">
-    <div class="panel mission">
-      <p>
-        RexusAI is an applied AI lab focused on building practical,
-        human-controlled systems that reduce friction in complex digital
-        workflows.
-      </p>
-      <p>
-        The work prioritizes accessibility, privacy, auditability, and
-        reliability — especially in constrained or regulated environments
-        where traditional automation and assistive tools fall short.
-      </p>
-      <p>
-        No browser plugins. No fragile scripts. No opaque agents acting
-        on your behalf.
-      </p>
-    </div>
-  </section>
+  </nav>
 
-  <section id="products">
-    <h2>Products</h2>
+  <main>
+    <section class="hero-section">
+      <div class="container animate-up">
+        <h1 class="gradient-text">Accessibility First,<br>AI Driven.</h1>
+        <p>
+          RexusAI builds human-controlled systems that bridge the digital accessibility gap.
+          Practical AI lab focused on privacy, reliability, and real-world impact.
+        </p>
+        <div class="cta-row" style="display:flex; gap:16px; justify-content:center;">
+          <a href="#products" class="btn btn-primary">Our Solutions</a>
+          <a href="/rexuscore/" class="btn btn-outline">Explore RexusCore</a>
+        </div>
 
-    <div class="products">
-      <div class="product">
-        <div class="status">Available</div>
-        <h3>KeyCatcher</h3>
-        <p>
-          A hardware keyboard bridge that restores input freedom in
-          locked-down and constrained environments.
-        </p>
-        <p>
-          Designed for accessibility, automation, and cross-device control
-          where copy/paste, virtual keyboards, or extensions are restricted.
-        </p>
-        <a href="/#overview">View KeyCatcher →</a>
+        <div class="stats-grid">
+          <div class="stat-card glass">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-card glass">
+            <span class="stat-number">AI</span>
+            <span class="stat-label">Core Integration</span>
+          </div>
+          <div class="stat-card glass">
+            <span class="stat-number">HW</span>
+            <span class="stat-label">Bridge Support</span>
+          </div>
+          <div class="stat-card glass">
+            <span class="stat-number">UX</span>
+            <span class="stat-label">Safety Focus</span>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="product">
-        <div class="status">In Development</div>
-        <h3>Sightline</h3>
-        <p>
-          Visual-state analysis that understands forms, fields, labels,
-          and errors directly from the screen.
-        </p>
-        <p>
-          Built to support guided, accessible workflows without relying
-          on APIs or page structure.
-        </p>
+    <section id="about" class="glass" style="border-left:none; border-right:none;">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <h2>Redefining Assistance</h2>
+          <p style="margin-top: 24px; font-size: 1.15rem; color: var(--text-muted);">
+            We don't build opaque agents that act in secret. We build tools that extend human capability.
+            Our systems are designed for high-cognitive-load tasks and constrained environments where
+            traditional automation fails.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <div class="product">
-        <div class="status">In Development</div>
-        <h3>CoachPort</h3>
-        <p>
-          An AI-assisted job application system that helps users parse
-          forms, map data, and complete applications step-by-step.
-        </p>
-        <p>
-          Designed with a human in the loop and accessibility at the core.
-        </p>
+    <section id="products">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <div>
+            <h2>Solutions</h2>
+            <p style="color: var(--text-muted); margin-top: 8px;">Applied AI for real-world problems.</p>
+          </div>
+          <a href="/rexuscore/" style="color: var(--accent-primary); text-decoration: none;">Powered by RexusCore →</a>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-card glass glass-hover" id="keycatcher">
+            <div class="status">Available</div>
+            <h3 class="gradient-text">KeyCatcher</h3>
+            <p>
+              A hardware keyboard bridge that restores input freedom.
+              Automate and control any device, even in locked-down environments
+              where copy/paste or extensions are restricted.
+            </p>
+            <a href="/KeyCatcher.html" class="btn btn-outline">Learn More</a>
+          </div>
+
+          <div class="product-card glass glass-hover" id="sightline">
+            <div class="status">In Development</div>
+            <h3 class="gradient-text">Sightline</h3>
+            <p>
+              Visual-state analysis that understands forms, fields, and errors
+              directly from the screen. Built for guided, accessible workflows
+              without API requirements.
+            </p>
+          </div>
+
+          <div class="product-card glass glass-hover" id="coachport">
+            <div class="status">In Development</div>
+            <h3 class="gradient-text">CoachPort</h3>
+            <p>
+              An AI-assisted job application system. Parse forms, map data,
+              and complete applications step-by-step with a human in the loop.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <div class="divider"></div>
-    <div class="foundation">
-      <h2>Built on RexusCore</h2>
-      <p>
-        These systems share a common internal platform that connects
-        vision, language models, and real-world tool execution into
-        inspectable, human-controlled workflows.
-      </p>
-      <p>
-        RexusCore is used internally to ensure consistency, auditability,
-        and reliability across all products.
-      </p>
-     <!-- <a href="/rexuscore">Learn about RexusCore →</a> -->
-    </div>
-  </section>
+    <section>
+      <div class="container glass" style="padding: 60px; border-radius: var(--radius-lg); text-align: center;">
+        <h2 class="gradient-text">Experimental Physics</h2>
+        <p style="margin-top: 16px; color: var(--text-muted); max-width: 600px; margin-inline: auto;">
+          We push the boundaries of real-time simulation and web-based graphics.
+          Explore our Orbital Drift simulations.
+        </p>
+        <div style="margin-top: 32px;">
+          <a href="/games.html" class="btn btn-primary">Play Games</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <div>
-      Built and maintained by <strong>Jim Gaudette</strong><br />
-      Senior software engineer with 30+ years of experience across
-      enterprise systems, embedded devices, and AI-driven automation.
-    </div>
-    <div class="links">
-      <a href="https://github.com/escuber">GitHub</a>
-      <a href="https://www.linkedin.com/in/jim-gaudette/">LinkedIn</a>
-      <a href="mailto:jimgaudette@gmail.com">Contact</a>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand">
+            <img src="assets/rai.png" alt="RexusAI">
+            <span>RexusAI</span>
+          </div>
+          <p>Built and maintained by Jim Gaudette. Senior software engineer focusing on AI-driven automation.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="/rexuscore/">RexusCore</a></li>
+            <li><a href="/rexuscore/vision.html">Vision Engine</a></li>
+            <li><a href="/rexuscore/reasoning.html">Reasoning</a></li>
+            <li><a href="/rexuscore/execution.html">Execution</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/#keycatcher">KeyCatcher</a></li>
+            <li><a href="/#sightline">Sightline</a></li>
+            <li><a href="/agent.html">Form Agent</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="https://github.com/escuber">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/jimgaudette/">LinkedIn</a></li>
+            <li><a href="mailto:jimgaudette@gmail.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2026 RexusAI. All rights reserved.
+      </div>
     </div>
   </footer>
-
 </body>
+
 </html>
