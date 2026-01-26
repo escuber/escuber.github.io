@@ -189,12 +189,19 @@
 
         <section id="client" class="card glass">
           <h2>Client (Windows & Android)</h2>
-          <ul style="color: var(--text-muted);">
-            <li>Unified UI for both platforms.</li>
-            <li>Support for large messages (up to 6KB).</li>
-            <li>Picture-to-Text helper (OCR) for rapid data entry.</li>
-            <li>Configure device identity and network settings.</li>
-          </ul>
+          <div style="display: flex; gap: 32px; align-items: start; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px;">
+              <ul style="color: var(--text-muted); margin-left: 0; list-style-position: inside;">
+                <li>Unified UI for both platforms.</li>
+                <li>Support for large messages (up to 6KB).</li>
+                <li>Picture-to-Text helper (OCR) for rapid data entry.</li>
+                <li>Configure device identity and network settings.</li>
+              </ul>
+            </div>
+            <div style="flex: 0 0 280px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-soft); background: #000;">
+              <img src="assets/keycatcherscreen.png" alt="KeyCatcher App Screenshot" style="width: 100%; display: block;">
+            </div>
+          </div>
         </section>
 
         <section id="security" class="card glass">
