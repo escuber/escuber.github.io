@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbital Drift | 2D Hybrid View</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="hybrid2d.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- HUD Overlay -->
+        <div id="hybrid-hud">
+            <!-- Top HUD: Mode Indicator -->
+            <div class="hud-top">
+                <div class="mode-indicator glass">
+                    <span id="view-mode-text">STRATEGIC MAP</span>
+                    <div class="mode-glitch"></div>
+                </div>
+            </div>
+
+            <!-- Bottom HUD: Statistics & Controls -->
+            <div class="hud-bottom">
+                <div class="h-panel glass left">
+                    <div class="stat-group">
+                        <label>VELOCITY</label>
+                        <div class="value" id="vel-val">0.00</div>
+                    </div>
+                    <div class="stat-group">
+                        <label>GRAVITY CONSTANT</label>
+                        <input type="range" id="gravity-slider" min="0" max="1000" value="200">
+                        <div class="value" id="gravity-display" style="font-size: 0.9rem;">2.0</div>
+                    </div>
+                </div>
+
+                <div class="h-panel glass center">
+                    <div class="view-toggle-hint">
+                        <span>PRESS [V] TO SWITCH VIEW</span>
+                        <div class="control-hints" style="font-size: 0.6rem; opacity: 0.6; margin-top: 4px;">
+                            [W][A][S][D] Move | [SPACE] Thrust | [F] Fire | [R] Reset
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-panel glass right">
+                    <div class="stat-group">
+                        <label>THRUST POWER</label>
+                        <div class="thrust-meter">
+                            <div class="thrust-bar" id="thrust-bar" style="width: 11%;"></div>
+                        </div>
+                        <div class="value" id="thrust-lvl">1</div>
+                    </div>
+                    <button id="reset-btn" class="mini-btn">RE-INITIALIZE [R]</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Initial Boot Screen -->
+        <div id="boot-screen" class="glass">
+            <div class="terminal-content">
+                <h1 class="glitch" data-text="HYBRID 2D ONLINE">HYBRID 2D ONLINE</h1>
+                <p>Establishing tactical link... <span class="status">OK</span></p>
+                <p>Calibrating dual-projection engine... <span class="status">OK</span></p>
+                <button id="ignite-btn">ENGAGE SYSTEMS</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="hybrid2d.js"></script>
+</body>
+
+</html>

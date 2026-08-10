@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbital Drift | Hybrid View</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="hybrid.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- Three.js Canvas -->
+
+        <!-- HUD Overlay -->
+        <div id="hybrid-hud">
+            <!-- Top HUD: Mode Indicator -->
+            <div class="hud-top">
+                <div class="mode-indicator glass">
+                    <span id="view-mode-text">STRATEGIC MAP</span>
+                    <div class="mode-glitch"></div>
+                </div>
+            </div>
+
+            <!-- Center HUD: Crosshair (Only in Pilot Mode) -->
+            <div class="hud-center" id="pilot-crosshair" style="display: none;">
+                <div class="crosshair">
+                    <div class="circle"></div>
+                    <div class="lines"></div>
+                </div>
+            </div>
+
+            <!-- Bottom HUD: Statistics -->
+            <div class="hud-bottom">
+                <div class="h-panel glass left">
+                    <div class="stat-group">
+                        <label>VELOCITY</label>
+                        <div class="value" id="vel-val">0.00</div>
+                    </div>
+                    <div class="stat-group">
+                        <label>ALTITUDE</label>
+                        <div class="value" id="alt-val">0.00</div>
+                    </div>
+                </div>
+
+                <div class="h-panel glass center">
+                    <div class="view-toggle-hint">
+                        <span>PRESS [V] TO SWITCH VIEW</span>
+                    </div>
+                </div>
+
+                <div class="h-panel glass right">
+                    <div class="stat-group">
+                        <label>THRUST</label>
+                        <div class="thrust-meter">
+                            <div class="thrust-bar" id="thrust-bar" style="width: 20%;"></div>
+                        </div>
+                        <div class="value" id="thrust-lvl">1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Initial Boot Screen -->
+        <div id="boot-screen" class="glass">
+            <div class="terminal-content">
+                <h1 class="glitch" data-text="HYBRID SYSTEMS ONLINE">HYBRID SYSTEMS ONLINE</h1>
+                <p>Establishing link to drone orbit... <span class="status">OK</span></p>
+                <p>Calibrating pilot neural interface... <span class="status">OK</span></p>
+                <p>Gravity-Tactical switch ready... <span class="status">OK</span></p>
+                <button id="ignite-btn">ENGAGE SYSTEMS</button>
+            </div>
+            <div class="controls-hint">
+                <p><span>WASD / Arrows</span> Move & Turn | <span>SPACE</span> Thrust</p>
+                <p><span>V</span> Toggle View | <span>F</span> Fire | <span>1-9</span> Power</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="hybrid.js"></script>
+</body>
+
+</html>

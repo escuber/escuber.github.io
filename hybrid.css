@@ -1,0 +1,304 @@
+:root {
+    --hud-green: #00ff95;
+    --hud-blue: #00f2ff;
+    --hud-alert: #ff3c00;
+    --hud-warn: #fbbf24;
+    --glass-bg: rgba(0, 20, 30, 0.4);
+    --glass-border: rgba(0, 242, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+    user-select: none;
+}
+
+body {
+    background: #000;
+    color: var(--hud-blue);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+}
+
+#hybrid-hud {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    z-index: 10;
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* TOP HUD */
+.hud-top {
+    display: flex;
+    justify-content: center;
+}
+
+.mode-indicator {
+    padding: 0.75rem 2rem;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    min-width: 250px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#view-mode-text {
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    text-shadow: 0 0 8px var(--hud-blue);
+}
+
+.mode-glitch {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: var(--hud-blue);
+    width: 100%;
+    opacity: 0.5;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scaleX(0); opacity: 0; }
+    50% { transform: scaleX(1); opacity: 0.5; }
+    100% { transform: scaleX(0); opacity: 0; }
+}
+
+/* CENTER HUD */
+.hud-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crosshair {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+.crosshair .circle {
+    position: absolute;
+    inset: 30%;
+    border: 1px solid var(--hud-blue);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: rotate 10s linear infinite;
+}
+
+.crosshair .lines {
+    position: absolute;
+    inset: 0;
+}
+
+.crosshair .lines::before,
+.crosshair .lines::after {
+    content: '';
+    position: absolute;
+    background: var(--hud-blue);
+    box-shadow: 0 0 10px var(--hud-blue);
+}
+
+.crosshair .lines::before {
+    top: 50%;
+    left: 0;
+    width: 40px;
+    height: 1px;
+}
+
+.crosshair .lines::after {
+    top: 50%;
+    right: 0;
+    width: 40px;
+    height: 1px;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* BOTTOM HUD */
+.hud-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.h-panel {
+    padding: 1.25rem;
+    min-width: 200px;
+}
+
+.h-panel.center {
+    min-width: unset;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 0;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+}
+
+.view-toggle-hint {
+    font-size: 0.7rem;
+    color: var(--hud-warn);
+    font-weight: 700;
+}
+
+.stat-group {
+    margin-bottom: 0.75rem;
+}
+
+.stat-group:last-child {
+    margin-bottom: 0;
+}
+
+.stat-group label {
+    font-size: 0.6rem;
+    color: var(--hud-blue);
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.stat-group .value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 0 0 8px var(--hud-blue);
+}
+
+.thrust-meter {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 6px 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.thrust-bar {
+    height: 100%;
+    background: var(--hud-green);
+    width: 0%;
+    transition: width 0.1s;
+    box-shadow: 0 0 10px var(--hud-green);
+}
+
+/* BOOT SCREEN */
+#boot-screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #001a26 0%, #000 100%);
+    z-index: 100;
+    pointer-events: auto;
+}
+
+.terminal-content {
+    text-align: center;
+    max-width: 600px;
+}
+
+h1.glitch {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: var(--hud-blue);
+    position: relative;
+    text-transform: uppercase;
+}
+
+h1.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -1px 0 var(--hud-alert);
+    top: 0;
+    color: var(--hud-blue);
+    background: transparent;
+    overflow: hidden;
+    clip: rect(0,900px,0,0); 
+    animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-anim {
+  0% { clip: rect(22px, 9999px, 94px, 0); }
+  20% { clip: rect(63px, 9999px, 81px, 0); }
+  40% { clip: rect(10px, 9999px, 51px, 0); }
+  60% { clip: rect(78px, 9999px, 91px, 0); }
+  80% { clip: rect(32px, 9999px, 45px, 0); }
+  100% { clip: rect(84px, 9999px, 19px, 0); }
+}
+
+.status {
+    color: var(--hud-green);
+    font-weight: bold;
+}
+
+button {
+    margin-top: 3rem;
+    padding: 1rem 3.5rem;
+    background: rgba(0, 242, 255, 0.05);
+    color: var(--hud-blue);
+    border: 1px solid var(--hud-blue);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+}
+
+button:hover {
+    background: var(--hud-blue);
+    color: #000;
+    box-shadow: 0 0 40px rgba(0, 242, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.controls-hint {
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.controls-hint span {
+    color: var(--hud-warn);
+    background: rgba(251, 191, 36, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin: 0 2px;
+}
